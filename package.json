@@ -1,0 +1,26 @@
+{
+  "name": "podcast-app",
+  "version": "1.0.0",
+  "description": "\"You can subscribe on iTunes or wherever you get your podcasts.\" It is a classic line, that most of us here at PODCAST APP leave us wondering, \"Well where is that?\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbychkowski/podcast-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mbychkowski/podcast-app/issues"
+  },
+  "homepage": "https://github.com/mbychkowski/podcast-app#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.15"
+  }
+}
