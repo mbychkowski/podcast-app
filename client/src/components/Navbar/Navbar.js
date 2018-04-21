@@ -6,7 +6,7 @@ import './Navbar.css';
 const Navbar = props => {
     return(
         <div className="navbar w-full">
-            
+       
         </div>
     )
 }
