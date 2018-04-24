@@ -16,7 +16,13 @@ const podcastSchema = new Schema({
   synopsis: {
     type: String
   },
+  thumbnail: {
+    type: String
+  },
   lastRealease: {
+    type: Date
+  },
+  feedUrl: {
     type: Date
   }
 });

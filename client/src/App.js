@@ -13,7 +13,7 @@ class App extends Component {
         <Jumbotron />
         <PodcastList />
       </div>
-    
+
     );
   }
 }
