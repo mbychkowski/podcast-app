@@ -1,4 +1,6 @@
-# Create React Express App
+# Podcast App
+
+# Create React Express App (Developer Notes)
 
 ## About This Boilerplate
 
