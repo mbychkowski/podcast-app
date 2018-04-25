@@ -1,5 +1,7 @@
 import React from 'react';
-// import GoogleLogin from 'react-google-login';
+import GoogleLoginHelper from 'react-google-login';
+// import GoogleLoginHelper from "./components/GoogleLoginHelper";
+
 
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from '../../App.js';
@@ -14,12 +16,18 @@ const app = document.getElementById('app');
 const Navbar = props => {
   return (
   <div className="navbar w-full">
-      <button
+      {/* <button
         name="signUp"
         id="signUp"
         className="btn btn-primary"
         href="/signup">Sign-up
-      </button>
+      </button> */}
+
+    {/* Sign-in with Google */}
+    <div className="g-signin2" data-onsuccess="onSignIn">
+      <GoogleLoginHelper /> </div>
+
+
   </div>
 );
 }
