@@ -23,7 +23,7 @@ class Jumbotron extends Component {
 
   //Search the iTunes Affiliate API
   searchItunes = query => {
-    API.search(query)
+    API.searchItunes(query)
       .then(res => console.log(res))
       .catch(error => console.log(error))
   }
