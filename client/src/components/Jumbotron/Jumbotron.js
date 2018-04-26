@@ -7,8 +7,7 @@ class Jumbotron extends Component {
 
   // Set the initial state
   state = {
-    search: "",
-    results: []
+    search: ""
   };
 
   // Handle the input change
@@ -24,7 +23,10 @@ class Jumbotron extends Component {
   //Search the iTunes Affiliate API
   searchItunes = query => {
     API.searchItunes(query)
-      .then(res => console.log(res))
+      .then(res => {
+        this.props.saveResults(res)
+        console.log(res)
+      })
       .catch(error => console.log(error))
   }
 

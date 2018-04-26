@@ -1,16 +1,17 @@
 import React from 'react';
-import Pill from './Pill'
+import Pill from './Pill';
+import "../PodcastList/PodcastList.css";
 
 const PodcastCard = props => {
     return(
-        <div>
-        {props.results.map(genre => (
-            <div classNameName="max-w-sm rounded overflow-hidden shadow-lg">
-                <img className="w-full" src="https://tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains" />>
+        <div className="podcastList w-1/4">
+        {props.results.map(podcast => (
+            <div key = {podcast.collectionId} className="max-w-sm rounded overflow-hidden shadow-lg">
+                <img className="w-full" src={podcast.artworkUrl100} alt="Sunset in the mountains" />
                 <div className="px-6 py-4">
-                    <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
+                    <div className="font-bold text-xl mb-2">{podcast.collectionName}</div>
                     <p className="text-grey-darker text-base">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                    {podcast.artistName}
                     </p>
                 </div>
                 <div className="px-6 py-4">
@@ -18,7 +19,9 @@ const PodcastCard = props => {
                     {/* Adding a Pill for each genre */}
 
                     {/* Need to pass a prop as a result of this */}
-                    <Pill />
+                    <Pill 
+                    genres = {podcast.genres}
+                    />
 
 
                 </div>

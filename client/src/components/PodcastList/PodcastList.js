@@ -7,7 +7,9 @@ class PodcastList extends Component {
     render() {
         return(
             <div className="podcastList w-full">
-                <PodcastCard />
+                <PodcastCard 
+                results = {this.props.results}
+                />    
             </div> 
         )
          
