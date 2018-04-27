@@ -3,8 +3,10 @@ import "./Jumbotron.css";
 
 const Jumbotron = props => {
     return(
-        <div className="jumbotron w-full">
-
+        <div className="flex justify-center jumbotron w-full">
+          <div className="justify-center">
+            <img src={props.image} alt="No Image"/>
+          </div>
         </div>
     )
 }

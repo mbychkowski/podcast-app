@@ -7,7 +7,8 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    results: [],
+    items: [],
+    feed: {},
     search: ""
   };
 
@@ -19,23 +20,28 @@ class App extends Component {
     API.searchRss(query)
       .then(res =>
         this.setState({
-          results: res.data.items
-        })).catch(err => console.log(err));
+          items: res.data.items,
+          feed: res.data.feed
+        })).then(console.log(this.state)).catch(err => console.log(err));
   };
 
   render() {
     return (
     <div>
       <Navbar />
-      <Jumbotron />
+      <Jumbotron
+        name={this.state.feed.name}
+        image={this.state.feed.image}
+      />
       <EpisodeList>
 
-        {this.state.results.map(result => {
+        {this.state.items.map(item => {
           return (
             <EpisodeListItem
-              key={result.title}
-              title={result.title}
-              thumbnail={result.image}
+              key={item.title}
+              title={item.title}
+              thumbnail={item.image}
+              audio={item.enclosure.link}
             />
           )
         })}
