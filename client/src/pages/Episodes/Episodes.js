@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Jumbotron from "../../components/Jumbotron";
+import { List, ListItem } from "../../components/List";
+import EpisodeCard from "../../components/EpisodeCard";
 import API from "../../utils/API";
 
-class Episodes extends Component {
 
-}
+export default Episodes;
