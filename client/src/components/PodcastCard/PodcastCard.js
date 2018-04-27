@@ -1,7 +1,7 @@
 import React from "react";
 import Pill from "./Pill";
 import { Link } from 'react-router-dom'
-import "../PodcastList/PodcastList.css";
+import "./PodcastCard.css"
 
 const PodcastCard = props => {
     return(
@@ -12,11 +12,11 @@ const PodcastCard = props => {
             {/* Go through each result and map to a new array called podcasr. This will then dipslay the content from the response */}
             {props.results.map(podcast => (
             
-                <div key = {podcast.collectionId} className="max-w-sm rounded overflow-hidden shadow-lg hover:bg-blue-lighter w-1/5 p-2" feed = {podcast.feedUrl}>
-                  <Link to = {`/podcasts/${podcast.collectionId}`}>
+                <div key = {podcast.collectionId} className="max-w-sm rounded overflow-hidden shadow-lg hover:bg-blue-lighter sm:w-full md:w-1/2 lg:w-1/4 xl:w-1/5 p-2" feed = {podcast.feedUrl}>
+                  <Link to = {`/podcasts/${podcast.collectionId}`} style={{ textDecoration: 'none' }}>
                     <img className="w-full" src={podcast.artworkUrl600} alt="Sunset in the mountains" />
                     <div className="px-6 py-4">
-                        <div className="font-bold text-xl mb-2">{podcast.collectionName}</div>
+                        <div className="font-bold text-xl mb-2 podcastText">{podcast.collectionName}</div>
                         <p className="text-grey-darker text-base">
                         {podcast.artistName}
                         </p>

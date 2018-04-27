@@ -11,7 +11,7 @@ const App = () => (
     <div>
       <Navbar />
       <Switch>
-      <Route exact path ="/" component={Search} />
+      <Route exact path = "/" component={Search} />
       <Route exact path = "/podcast/:id" component ={EpisodeList} />
       </Switch>
     </div>
