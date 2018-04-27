@@ -8,7 +8,7 @@ const Pill = props => {
             {props.genres.map((genre, index) => (
                 <span 
                 key = {index}
-                className="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2">{genre}</span>
+                className="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker m-1 mr-2">{genre}</span>
             ))}
             
         </div>

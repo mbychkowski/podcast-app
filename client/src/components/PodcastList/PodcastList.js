@@ -6,7 +6,7 @@ import "./PodcastList.css";
 class PodcastList extends Component {
     render() {
         return(
-            <div className="podcastList w-full">
+            <div className="podcastList flex items-start">
                 <PodcastCard 
                 results = {this.props.results}
                 />    
