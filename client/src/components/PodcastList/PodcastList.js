@@ -1,12 +1,21 @@
-import React from "react";
+import React, { Component } from "react";
+import PodcastCard from "../PodcastCard"
 import "./PodcastList.css";
 
-const PodcastList = props => {
-    return(
-        <div className="podcastList w-full">
 
-        </div>
-    )
+class PodcastList extends Component {
+    render() {
+        return(
+            <div className="podcastList flex items-start">
+                <PodcastCard 
+                results = {this.props.results}
+                />    
+            </div> 
+        )
+         
+    }
+       
 }
+
 
 export default PodcastList;

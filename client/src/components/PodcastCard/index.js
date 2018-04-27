@@ -1,1 +1,1 @@
-export { default } from './PodcastCard';
+export { default } from "./PodcastCard";
