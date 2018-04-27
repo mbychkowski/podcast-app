@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Jumbotron.css";
 import Searchbar from "../Searchbar"
-import API from '../../utils/API.js'
+import API from "../../utils/API.js"
 
 class Jumbotron extends Component {
 

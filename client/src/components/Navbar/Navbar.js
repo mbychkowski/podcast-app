@@ -1,5 +1,5 @@
-import React from 'react';
-import './Navbar.css';
+import React from "react";
+import "./Navbar.css";
 
 // Create a component that will be the navbar
 
