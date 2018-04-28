@@ -5,7 +5,7 @@ import { EpisodeList, EpisodeListItem } from "./components/EpisodeList";
 import API from "./utils/API";
 import "./App.css";
 
-class App extends Component {
+class Episodes extends Component {
   state = {
     items: [],
     feed: {},
@@ -50,3 +50,5 @@ class App extends Component {
     </div>);
   }
 }
+
+export default Episodes
