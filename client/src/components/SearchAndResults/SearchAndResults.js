@@ -7,7 +7,8 @@ import PodcastList from "../PodcastList";
 class SearchAndResults extends Component {
     // Set the initial state
     state = {
-        results: []
+        results: [],
+        feedUrl: ""
     };
 
     saveResults = res => {

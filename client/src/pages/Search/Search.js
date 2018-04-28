@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
 
 // Import all cpmponents that will be displayed on this page
 import SearchAndResults from "../../components/SearchAndResults"

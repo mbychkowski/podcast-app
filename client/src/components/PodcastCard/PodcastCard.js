@@ -13,7 +13,11 @@ const PodcastCard = props => {
             {props.results.map(podcast => (
 
                 <div key = {podcast.collectionId} className="max-w-sm rounded overflow-hidden shadow-lg hover:bg-blue-lighter sm:w-full md:w-1/2 lg:w-1/4 xl:w-1/5 p-2" feed = {podcast.feedUrl}>
-                  <Link to = {`/podcast/${podcast.collectionId}`} style={{ textDecoration: 'none' }}>
+                  <Link to = {{
+                      pathname: `/podcast/${podcast.collectionId}`,
+                      state: {feedUrl: podcast.feedUrl}
+                  }}
+                    style={{ textDecoration: 'none' }}>
                     <img className="w-full" src={podcast.artworkUrl600} alt="Sunset in the mountains" />
                     <div className="px-6 py-4">
                         <div className="font-bold text-xl mb-2 podcastText">{podcast.collectionName}</div>

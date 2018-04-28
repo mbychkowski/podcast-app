@@ -12,7 +12,7 @@ const App = () => (
       <Navbar />
       <Switch>
         <Route exact path = "/" component = { Search } />
-        <Route exact path = "/podcast/:id" render = {() => <Episodes feedUrl = "" />} />
+        <Route exact path = "/podcast/:id" component = { Episodes } />
       </Switch>
     </div>
   </Router>

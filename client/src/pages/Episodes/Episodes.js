@@ -7,14 +7,19 @@ import Jumbotron          from "../../components/JumbotronEps";
 import API                from "../../utils/API";
 
 class Episodes extends Component {
+
   state = {
+    feedUrl: "",
     items: [],
     feed: {},
     search: ""
   };
 
   componentDidMount() {
-    this.searchFeedUrl("https://www.npr.org/rss/podcast.php?id=510289");
+    // this.setState({
+    //   feedUrl: this.props.state.location.feedUrl
+    // });
+    this.searchFeedUrl("https://wtfpod.libsyn.com/rss");
   }
 
   searchFeedUrl = query => {
