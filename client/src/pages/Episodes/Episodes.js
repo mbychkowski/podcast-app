@@ -5,21 +5,25 @@ import {
   EpisodeListItem }       from "../../components/EpisodeList";
 import Jumbotron          from "../../components/JumbotronEps";
 import API                from "../../utils/API";
+import PropTypes from 'prop-types';
+// import { withRouter } from 'react-router';
 
 class Episodes extends Component {
 
+  static propTypes = {
+    match: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
+  }
+
   state = {
-    feedUrl: "",
     items: [],
     feed: {},
     search: ""
   };
 
   componentDidMount() {
-    // this.setState({
-    //   feedUrl: this.props.state.location.feedUrl
-    // });
-    this.searchFeedUrl("https://wtfpod.libsyn.com/rss");
+    this.searchFeedUrl(this.props.location.state.feedUrl);
   }
 
   searchFeedUrl = query => {
