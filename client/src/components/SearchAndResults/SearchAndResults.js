@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PodcastCard from "../PodcastCard"
 import Jumbotron from "../Jumbotron";
 import PodcastList from "../PodcastList";
 
@@ -22,12 +21,10 @@ class SearchAndResults extends Component {
             <div>
                 <Jumbotron saveResults={this.saveResults} />
                 <PodcastList results={this.state.results}/>
-            </div> 
+            </div>
         )
-         
     }
-       
-    
+
 }
 
 export default SearchAndResults;

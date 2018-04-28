@@ -1,10 +1,9 @@
 import React, {Component} from "react";
 
-import { 
+import {
   EpisodeList,
   EpisodeListItem }       from "../../components/EpisodeList";
 import Jumbotron          from "../../components/JumbotronEps";
-import Navbar             from "../../components/Navbar"
 import API                from "../../utils/API";
 
 class Episodes extends Component {
@@ -30,7 +29,6 @@ class Episodes extends Component {
   render() {
     return (
     <div>
-      <Navbar />
       <Jumbotron
         name={this.state.feed.name}
         image={this.state.feed.image}

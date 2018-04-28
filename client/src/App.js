@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Navbar from "./components/Navbar"
 import Search from "./pages/Search"
@@ -11,8 +11,8 @@ const App = () => (
     <div>
       <Navbar />
       <Switch>
-        <Route exact path = "/" component={ Search } />
-        <Route exact path = "/podcast/:id" component ={ Episodes } />
+        <Route exact path = "/" component = { Search } />
+        <Route exact path = "/podcast/:id" component = { Episodes } />
       </Switch>
     </div>
   </Router>
