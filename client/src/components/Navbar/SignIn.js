@@ -1,7 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
-// Google login
 
 // const responseGoogle = (response) =>
 //  console.log(response);

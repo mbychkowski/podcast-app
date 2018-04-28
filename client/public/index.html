@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
     <meta name="google-signin-client_id" content="558027906323-pp4gp3279cmjjulkggqn77vgklp58vhm.apps.googleusercontent.com">
+
     <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
@@ -26,7 +27,9 @@
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
-    <div id="google-login"></div>
+    <!-- <div id="google-login" class="google-btn" href="/auth/google"></div> -->
+    <a href="/auth/google">Login with Google</a>
+
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -39,6 +42,7 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script src="//use.fontawesome.com/3bd7769ce1.js"></script>
   <script src="/webpack-dev-server.js"></script>

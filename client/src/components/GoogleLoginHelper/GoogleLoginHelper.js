@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import GoogleLogin from 'react-google-login';
+import mongoose from 'mongoose';
+import Router from '../../routes/api/auth-routes';
+import GoogleLogin, { GoogleLogout } from '../dist/google-login'
 
 class GoogleLoginHelper extends Component {
   // ReactDOM.render
   clientId = '558027906323-pp4gp3279cmjjulkggqn77vgklp58vhm.apps.googleusercontent.com'
-  // import GoogleLogin, { GoogleLogout } from '../dist/google-login'
 
   success = response => {
     console.log(response)
@@ -30,6 +31,13 @@ render() {
     buttonText="Login"
     className="g-signin2" data-onsuccess="onSignIn"
     />
+    <nav>
+            <ul>
+                <li><a href="/auth/logout">Logout</a></li>
+                <li><a href="/auth/login">Login</a></li>
+                <li><a href="/">Homepage</a></li>
+            </ul>
+        </nav>
     )
   }
 }
