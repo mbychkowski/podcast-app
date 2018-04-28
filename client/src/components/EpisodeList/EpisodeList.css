@@ -1,0 +1,8 @@
+li {
+  list-style-type: none;
+  padding-bottom: 1em;
+}
+
+audio {
+  float: right;
+}
