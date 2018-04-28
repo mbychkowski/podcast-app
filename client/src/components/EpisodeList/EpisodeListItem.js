@@ -1,6 +1,6 @@
 import React from "react";
 
-const EpisodeListItem = props => (
+export const EpisodeListItem = props => (
   <li>
     <div>
       <h3 className="font-bold text-xl mb-2">{props.title}</h3>
@@ -11,5 +11,3 @@ const EpisodeListItem = props => (
     </div>
   </li>
 )
-
-export default EpisodeListItem;

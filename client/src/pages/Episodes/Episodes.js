@@ -1,9 +1,11 @@
 import React, {Component} from "react";
-import Navbar from "./components/Navbar"
-import Jumbotron from "./components/Jumbotron";
-import { EpisodeList, EpisodeListItem } from "./components/EpisodeList";
-import API from "./utils/API";
-import "./App.css";
+
+import { 
+  EpisodeList,
+  EpisodeListItem }       from "../../components/EpisodeList";
+import Jumbotron          from "../../components/JumbotronEps";
+import Navbar             from "../../components/Navbar"
+import API                from "../../utils/API";
 
 class Episodes extends Component {
   state = {

@@ -1,3 +1,2 @@
-// export * from "./EpisodeList";
-// export * from "./EpisodeListItem";
-export { default } from "./EpisodeList";
+export * from "./EpisodeList";
+export * from "./EpisodeListItem";
