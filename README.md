@@ -11,16 +11,16 @@ The front-end React app will auto-reload as it's updated via webpack dev server,
 ## Wireframes
 
 ### Home Page
-![]("Wireframe_Images/Podcast-Wireframe.png")
+<img src ="Wireframe_Images/Wireframe_Images.png" width="100">
 
 ### Login Page
-![](Wireframe_Images/Project_Files/Podcast-Wireframe3.png")
+<img src="Wireframe_Images/Wireframe_Images/Podcast-Wireframe3.png" width="100">
 
 ### Favorites
-<img src= "Wireframe_Images/Podcast-Wireframe.png">
+<img src= "Wireframe_Images/Podcast-Wireframe.png" width="100">
 
 ### Subscribed
-<img src= "Wireframe_Images/Podcast-Wireframe.png">
+<img src= "Wireframe_Images/Podcast-Wireframe.png" width="100">
 
 
 ## Starting the app locally
