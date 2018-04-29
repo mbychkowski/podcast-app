@@ -1,12 +1,10 @@
 import React, {Component} from "react";
 
-import {
-  EpisodeList,
-  EpisodeListItem }       from "../../components/EpisodeList";
-import Jumbotron          from "../../components/JumbotronEps";
-import API                from "../../utils/API";
+import { EpisodeList, EpisodeListItem } from "../../components/EpisodeList";
+import Jumbotron from "../../components/JumbotronEps";
 import PropTypes from 'prop-types';
-// import { withRouter } from 'react-router';
+
+import API from "../../utils/API";
 
 class Episodes extends Component {
 
