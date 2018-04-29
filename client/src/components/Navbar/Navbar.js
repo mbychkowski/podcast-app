@@ -1,7 +1,7 @@
 import React from 'react';
 import GoogleLoginHelper from 'react-google-login';
 // import App from '../../App.js';
-// import SignIn from './SignIn';
+import SignIn from './SignIn';
 import './Navbar.css';
 
 // Create a component that will be the navbar

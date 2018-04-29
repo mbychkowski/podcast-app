@@ -13,4 +13,10 @@ router
   .put(podcastsController.update)
   .delete(podcastsController.remove);
 
+router
+  .route("/loggedin")
+  .get(podcastController.findById)
+  .post(podcastsController.create);
+  .put(podcastsController.update)
+
 module.exports = router;
