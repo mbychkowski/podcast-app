@@ -1,7 +1,10 @@
 import React from "react";
+
 import OktaSignIn from "@okta/okta-signin-widget";
 import "@okta/okta-signin-widget/dist/css/okta-sign-in.min.css";
 import "@okta/okta-signin-widget/dist/css/okta-theme.css";
+
+import Profile from "../Profile";
 
 class Login extends React.Component{
   constructor(){
@@ -56,7 +59,7 @@ class Login extends React.Component{
       <div>
         {this.state.user ? (
           <div className="container">
-            <div>Welcome, {this.state.user}!</div>
+            <Profile name={this.state.user}/>
             <button onClick={this.logout}>Logout</button>
           </div>
         ) : null}
