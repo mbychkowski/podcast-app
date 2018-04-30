@@ -8,6 +8,21 @@ This setup allows for a Node/Express/React app which can be easily deployed to H
 
 The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
 
+## Wireframes
+
+### Home Page
+<img src ="Wireframe_Images/Podcast-Wireframe.png" width="400">
+
+### Login Page
+<img src="Wireframe_Images/Podcast-Wireframe3.png" width="400">
+
+### Favorites
+<img src= "Wireframe_Images/Podcast-Wireframe4.png" width="400">
+
+### Subscribed
+<img src= "Wireframe_Images/Podcast-Wireframe5.png" width="400">
+
+
 ## Starting the app locally
 
 Start by installing front and backend dependencies. While in this directory, run the following commands:
