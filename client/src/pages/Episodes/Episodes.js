@@ -39,7 +39,9 @@ class Episodes extends Component {
     <div>
       <Navbar />
       <Jumbotron
-        name={this.state.feed.name}
+        title={this.state.feed.title}
+        author={this.state.feed.author}
+        description={this.state.feed.description}
         image={this.state.feed.image}
       />
       <EpisodeList>
