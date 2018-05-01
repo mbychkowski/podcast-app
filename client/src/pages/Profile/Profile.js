@@ -1,11 +1,14 @@
 import React from "react";
+import Navbar from "../../components/Navbar";
 
 const Profile = props => {
 
   return (
-    <div className="jumbotron w-full flex content-center justify-center">
-      <h1>PROTECTED</h1>
-      <h1>Hello, {props.name}</h1>
+    <div>
+      <Navbar />
+      <div className="jumbotron w-full flex content-center justify-center">
+        <h1>PROTECTED</h1>
+      </div>
     </div>
   )
 }

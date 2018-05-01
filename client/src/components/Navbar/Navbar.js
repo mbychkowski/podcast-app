@@ -1,14 +1,33 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import "./Navbar.css";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { withAuth } from '@okta/okta-react';
 
-class Navbar extends Component{
+export default withAuth(class Navbar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { authenticated: null };
+    this.checkAuthentication = this.checkAuthentication.bind(this);
+    this.checkAuthentication();
+  }
 
-  // static contextTypes = {
-  //   user: React.PropTypes.object
-  // };
+  async checkAuthentication() {
+    const authenticated = await this.props.auth.isAuthenticated();
+    if (authenticated !== this.state.authenticated) {
+      this.setState({ authenticated });
+    }
+  }
+
+  componentDidUpdate() {
+    this.checkAuthentication();
+  }
 
   render() {
+    if (this.state.authenticated === null) return null;
+
+    const button = this.state.authenticated ?
+      <li><button onClick={this.props.auth.logout}>Logout</button></li> :
+      <li><button onClick={this.props.auth.login}>Login</button></li>;
+
     return (
       <nav className="flex items-center justify-between flex-wrap bg-teal p-6">
         <div className="flex items-center flex-no-shrink text-white mr-6">
@@ -18,12 +37,12 @@ class Navbar extends Component{
         </div>
         <div className="navbar-collapse collapse">
           <ul>
-            <li><Link to={"/"}>browse</Link></li>
-            <li><Link to={"/login"}>login</Link></li>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/profile'>Profile</Link><br/></li>
+            {button}
           </ul>
         </div>
-    </nav>
-  )}
-}
-
-export default Navbar;
+      </nav>
+    );
+  }
+});
