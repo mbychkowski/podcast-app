@@ -1,75 +1,31 @@
-import React from "react";
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import LoginForm from '../../components/LoginForm';
+import { withAuth } from '@okta/okta-react';
 
-import okta from "./keys";
-import OktaSignIn from "@okta/okta-signin-widget";
-import "@okta/okta-signin-widget/dist/css/okta-sign-in.min.css";
-import "@okta/okta-signin-widget/dist/css/okta-theme.css";
-
-import Profile from "../Profile";
-
-class Login extends React.Component{
-  constructor(){
-    super();
-    this.state = { user: null };
-    this.widget = new OktaSignIn({
-      baseUrl: "https://dev-548725.oktapreview.com",
-      clientId: "0oaeuvr4xviHHzas00h7",
-      redirectUri: "http://localhost:3000"
-    });
-
-    this.showLogin = this.showLogin.bind(this);
-    this.logout = this.logout.bind(this);
+export default withAuth(class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { authenticated: null };
+    this.checkAuthentication = this.checkAuthentication.bind(this);
+    this.checkAuthentication();
   }
 
-  componentDidMount(){
-    console.log("componentDidMount...");
-    this.widget.session.get((response) => {
-      if(response.status !== "INACTIVE"){
-        this.setState({user:response.login});
-      }else{
-        this.showLogin();
-      }
-    });
+  async checkAuthentication() {
+    const authenticated = await this.props.auth.isAuthenticated();
+    if (authenticated !== this.state.authenticated) {
+      this.setState({ authenticated });
+    }
   }
 
-  showLogin(){
-    console.log("showLogin...")
-    window.Backbone.history.stop();
-    this.widget.renderEl({el:this.loginContainer},
-      (response) => {
-        this.setState({user: response.claims.email});
-        this.widget.remove();
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+  componentDidUpdate() {
+    this.checkAuthentication();
   }
 
-  logout(){
-    console.log("logout...");
-    this.widget.signOut(() => {
-      this.setState({user: null});
-      this.showLogin();
-    });
+  render() {
+    if (this.state.authenticated === null) return null;
+    return this.state.authenticated ?
+      <Redirect to={{ pathname: '/' }}/> :
+      <LoginForm baseUrl={this.props.baseUrl} />;
   }
-
-  render(){
-    console.log("rendering...");
-    return(
-      <div>
-        {this.state.user ? (
-          <div className="container">
-            <Profile name={this.state.user}/>
-            <button onClick={this.logout}>Logout</button>
-          </div>
-        ) : null}
-        {this.state.user ? null : (
-          <div ref={(div) => {this.loginContainer = div; }} />
-        )}
-      </div>
-    );
-  }
-}
-
-export default Login
+});

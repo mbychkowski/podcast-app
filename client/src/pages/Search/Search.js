@@ -1,17 +1,42 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { withAuth } from '@okta/okta-react';
 
-// Import all cpmponents that will be displayed on this page
-import SearchAndResults from "../../components/SearchAndResults"
+import SearchAndResults from "../../components/SearchAndResults";
 
-class Search extends Component {
+export default withAuth(class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { authenticated: null };
+    this.checkAuthentication = this.checkAuthentication.bind(this);
+    this.checkAuthentication();
+  }
+
+  async checkAuthentication() {
+    const authenticated = await this.props.auth.isAuthenticated();
+    if (authenticated !== this.state.authenticated) {
+      this.setState({ authenticated });
+    }
+  }
+
+  componentDidUpdate() {
+    this.checkAuthentication();
+  }
+
   render() {
+    if (this.state.authenticated === null) return null;
+
+    const button = this.state.authenticated ?
+      <button onClick={this.props.auth.logout}>Logout</button> :
+      <button onClick={this.props.auth.login}>Login</button>;
+
     return (
       <div>
-      <SearchAndResults />
-    </div>
-
+        <Link to='/'>Home</Link><br/>
+        <Link to='/profile'>profile</Link><br/>
+        {button}
+        <SearchAndResults />
+      </div>
     );
   }
-}
-
-export default Search
+});
