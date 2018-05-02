@@ -1,0 +1,13 @@
+
+.activePodcast {
+background-color: #656A73;
+height: 60px;
+width: 100%;
+position: fixed;
+position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: white;
+   text-align: center;
+}
