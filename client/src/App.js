@@ -8,8 +8,6 @@ import Episodes from "./pages/Episodes";
 import Profile from './pages/Profile';
 import Login from "./pages/Login";
 
-import config from "./.samples.config";
-
 import "./App.css";
 
 function onAuthRequired({history}) {
@@ -20,14 +18,14 @@ class App extends Component{
   render() {
     return (
       <Router>
-        <Security issuer = {config.oidc.issuer}
-                  client_id = {config.oidc.clientId}
-                  redirect_uri = {config.oidc.redirectUri}
+        <Security issuer = {process.env.REACT_APP_ISSUER}
+                  client_id = {process.env.REACT_APP_CLIENT_ID}
+                  redirect_uri = {process.env.REACT_APP_REDIRECT_URI}
                   onAuthRequired = {onAuthRequired} >
           <Navbar />
           <Route path = "/" exact component = {Home} />
           <Route path = "/implicit/callback" component = {ImplicitCallback} />
-          <Route path = "/login" render={() => <Login baseUrl = {config.oidc.issuer.split("/oauth2")[0]} />} />
+          <Route path = "/login" render={() => <Login baseUrl = {process.env.REACT_APP_ISSUER.split("/oauth2")[0]} />} />
           <Route path = "/podcast/:id" component = {Episodes} />
           <SecureRoute path= "/profile" component = {Profile} />
         </Security>

@@ -3,8 +3,6 @@ import * as OktaSignIn from '@okta/okta-signin-widget';
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 import '@okta/okta-signin-widget/dist/css/okta-theme.css';
 
-import config from '../../.samples.config';
-
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -14,9 +12,9 @@ export default class Login extends Component {
        * needs to be configured with the base URL for your Okta Org. Here
        * we derive it from the given issuer for convenience.
        */
-      baseUrl: config.oidc.issuer.split('/oauth2')[0],
-      clientId: config.oidc.clientId,
-      redirectUri: config.oidc.redirectUri,
+      baseUrl: process.env.REACT_APP_ISSUER.split('/oauth2')[0],
+      clientId: process.env.REACT_APP_CLIENT_ID,
+      redirectUri: process.env.REACT_APP_REDIRECT_URI,
       logo: '/react.svg',
       i18n: {
         en: {
@@ -25,9 +23,9 @@ export default class Login extends Component {
       },
       authParams: {
         responseType: ['id_token', 'token'],
-        issuer: config.oidc.issuer,
+        issuer: process.env.REACT_APP_ISSUER,
         display: 'page',
-        scopes: config.oidc.scope.split(' '),
+        scopes: process.env.REACT_APP_SCOPE.split(' '),
       },
     });
   }
