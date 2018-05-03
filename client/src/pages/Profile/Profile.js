@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withAuth } from '@okta/okta-react';
 import { Header, Icon, Table } from 'semantic-ui-react';
-
 import { checkAuthentication } from "../../helpers/helpers";
 
 export default withAuth(class Profile extends Component {
@@ -31,8 +30,13 @@ export default withAuth(class Profile extends Component {
   render() {
     return (
       <div>
-        <div className="jumbotron w-full flex content-center justify-center">
-          <h1>PROTECTED</h1>
+        <div className="text-black">
+          <h1>PROTECTED PAGE</h1>
+          <h1>PROTECTED PAGE</h1>
+          <h1>PROTECTED PAGE</h1>
+          <h1>PROTECTED PAGE</h1>
+          <h1>PROTECTED PAGE</h1>
+          <h1>PROTECTED PAGE</h1>
         </div>
       </div>
     )
