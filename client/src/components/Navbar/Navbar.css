@@ -1,9 +1,11 @@
 a:link {
     text-decoration: none;
+    border-bottom: 4px solid transparent;
 }
 
 a:visited {
     text-decoration: none;
+    border-bottom: 4px solid transparent;
 }
 
 a:hover {
@@ -19,25 +21,6 @@ a:active {
 }
 
 a {
-  color: white;
+  color: black;
   font-size: 1.25em;
-}
-
-button {
-  color: white;
-  font-size: 1.25em;
-  text-decoration: none;
-  border-bottom: 4px solid transparent;
-}
-
-button:hover {
-  text-decoration: none;
-  border-bottom: 4px solid;
-  border-color: #FF0080;
-}
-
-button:active {
-  text-decoration: none;
-  border-bottom: 4px solid;
-  border-color: #FF0080;
 }
