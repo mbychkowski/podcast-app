@@ -16,7 +16,7 @@ client/node_modules
 .env.production.local
 
 # configs
-.samples.config.js
+client/src/.samples.config.js
 
 npm-debug.log*
 yarn-debug.log*
