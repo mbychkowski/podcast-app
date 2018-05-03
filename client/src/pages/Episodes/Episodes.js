@@ -2,7 +2,6 @@ import React, {Component} from "react";
 
 import { EpisodeList, EpisodeListItem } from "../../components/EpisodeList";
 import Jumbotron from "../../components/JumbotronEps";
-import Navbar from "../../components/Navbar";
 import PropTypes from 'prop-types';
 
 import API from "../../utils/API";
@@ -37,7 +36,6 @@ class Episodes extends Component {
   render() {
     return (
     <div>
-      <Navbar />
       <Jumbotron
         title={this.state.feed.title}
         author={this.state.feed.author}

@@ -1,53 +1,50 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { withAuth } from '@okta/okta-react';
-
-import "./Navbar.css";
+import React, { Component } from 'react';
+import { Container, Icon, Image, Menu } from 'semantic-ui-react';
+import { checkAuthentication } from './helpers';
 
 export default withAuth(class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = { authenticated: null };
-    this.checkAuthentication = this.checkAuthentication.bind(this);
+    this.checkAuthentication = checkAuthentication.bind(this);
+    this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
+  }
+
+  async componentDidMount() {
     this.checkAuthentication();
   }
 
-  async checkAuthentication() {
-    const authenticated = await this.props.auth.isAuthenticated();
-    if (authenticated !== this.state.authenticated) {
-      this.setState({ authenticated });
-    }
+  async componentDidUpdate() {
+    this.checkAuthentication();
   }
 
-  componentDidUpdate() {
-    this.checkAuthentication();
+  async login() {
+    this.props.auth.login('/');
+  }
+
+  async logout() {
+    this.props.auth.logout('/');
   }
 
   render() {
-    if (this.state.authenticated === null) return null;
-
-    const button = this.state.authenticated ?
-      <li><button className="mr-6" onClick={this.props.auth.logout}>Logout</button></li> :
-      <li><button className="mr-6" onClick={this.props.auth.login}>Login</button></li>;
-
     return (
-      <nav className="flex items-center justify-between flex-wrap bg-blue-darkest p-6">
-        <div className="flex items-center flex-no-shrink mr-6">
-          <ul>
-            <li><Link to = {"/"}>
-              <svg className="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
-              Orator
-            </Link></li>
-          </ul>
-        </div>
-        <div className="navbar-collapse collapse">
-          <ul className="list-reset flex">
-            <li className="mr-6"><Link to='/'>Home</Link></li>
-            <li className="mr-6"><Link to='/profile'>Profile</Link><br/></li>
-            {button}
-          </ul>
-        </div>
-      </nav>
+      <div>
+        <Menu fixed="top" inverted>
+          <Container>
+            <Menu.Item as="a" header href="/">
+              <Image size="mini" src="/react.svg" />
+              &nbsp;
+              Okta-React Sample Project
+            </Menu.Item>
+            {this.state.authenticated === true && <Menu.Item id="messages-button" as="a" href="/messages"><Icon name="mail outline" />Messages</Menu.Item>}
+            {this.state.authenticated === true && <Menu.Item id="profile-button" as="a" href="/profile">Profile</Menu.Item>}
+            {this.state.authenticated === true && <Menu.Item id="logout-button" as="a" onClick={this.logout}>Logout</Menu.Item>}
+            {this.state.authenticated === false && <Menu.Item as="a" onClick={this.login}>Login</Menu.Item>}
+          </Container>
+        </Menu>
+      </div>
     );
   }
 });

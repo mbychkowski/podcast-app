@@ -1,16 +1,40 @@
-import React from "react";
-import Navbar from "../../components/Navbar";
+import React, { Component } from 'react';
+import { withAuth } from '@okta/okta-react';
+import { Header, Icon, Table } from 'semantic-ui-react';
 
-const Profile = props => {
+import { checkAuthentication } from "../../helpers/helpers";
 
-  return (
-    <div>
-      <Navbar />
-      <div className="jumbotron w-full flex content-center justify-center">
-        <h1>PROTECTED</h1>
+export default withAuth(class Profile extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { userinfo: null, ready: false };
+    this.checkAuthentication = checkAuthentication.bind(this);
+  }
+
+  async componentDidMount() {
+    await this.checkAuthentication();
+    this.applyClaims();
+  }
+
+  async componentDidUpdate() {
+    await this.checkAuthentication();
+    this.applyClaims();
+  }
+
+  async applyClaims() {
+    if (this.state.userinfo && !this.state.claims) {
+      const claims = Object.entries(this.state.userinfo);
+      this.setState({ claims, ready: true });
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="jumbotron w-full flex content-center justify-center">
+          <h1>PROTECTED</h1>
+        </div>
       </div>
-    </div>
-  )
-}
-
-export default Profile;
+    )
+  }
+});
