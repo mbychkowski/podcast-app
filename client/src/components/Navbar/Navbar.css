@@ -1,4 +1,26 @@
-.navbar {
-    background-color: cadetblue;
-    height: 100px;
+a:link {
+    text-decoration: none;
+    border-bottom: 4px solid transparent;
+}
+
+a:visited {
+    text-decoration: none;
+    border-bottom: 4px solid transparent;
+}
+
+a:hover {
+    text-decoration: none;
+    border-bottom: 4px solid;
+    border-color: #FF0080;
+}
+
+a:active {
+    text-decoration: none;
+    border-bottom: 4px solid;
+    border-color: #FF0080;
+}
+
+a {
+  color: black;
+  font-size: 1.25em;
 }
