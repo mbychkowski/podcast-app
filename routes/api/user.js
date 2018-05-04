@@ -5,4 +5,6 @@ const userController = "../../controllers/userController.js"
 router
     .route("/:id")
     .get(userController.findById)
-    .delete(userController.remove)
+    .put(userController.updateUser)
+    .delete(userController.removeUser)
+    .post(userController.createUser)
