@@ -1,3 +1,18 @@
 .podcastText {
+    /*color: #474F59;*/
     color: black;
+    font-family: 'open sans', sans-serif;
+    text-align: center;
+      height: auto;
+}
+
+.collection {
+background-color: #F9DFB9;
+/*background-color: #474F59;*/
+}
+
+.collectionId {
+  background-color: #E6E5E5;
+  margin: 1%;
+  border-radius: 5px;
 }
