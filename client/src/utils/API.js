@@ -24,11 +24,11 @@ export default {
   },
   // Deletes the user with the given id
   deleteUser: function(id) {
-    return axios.delete("/api/user/" + id);
+    return axios.delete("/api/users/" + id);
   },
   // Saves a user to the database
   saveUser: function(userData) {
-    return axios.post("/api/user", userData);
+    return axios.post("/api/users", userData);
   }
 
 }

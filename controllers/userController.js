@@ -11,28 +11,28 @@ module.exports = {
             .catch(err => res.json(error))
     },
     //Create a user
-    createUser: (req, res) => {
+    createUser: function(req, res) {
         db.User
             .create(req.body)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.json(err))
     },  
     //Update user
-    updateUser: (req, res) => {
+    updateUser: function(req, res) {
         db.User
             .findOneAndUpdate({_id: req.params.id}, req.body)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.json(error))
     },
     //Find a user by a specific user id
-    findById: (req, res) => {
+    findById: function(req, res) {
         db.User
             .findById(req.params.id)
             .then(dbModel => res.json(dbModel))
             .catch(dbModel => res.json(err))
     },
     //remove a user
-    removeUser: (req, res) => {
+    removeUser: function(req, res) {
         db.User
             .findById({_id: req.params.id})
             .then(dbModel => dbModel.remove())
