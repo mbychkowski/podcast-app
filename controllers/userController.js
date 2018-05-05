@@ -1,10 +1,9 @@
-const db = require('../models');
-
+const db = require("../models")
 
 //Export all of the controllers around a user
 module.exports = {
     //Get all user
-    findAll:  (req, res) => {
+    findAll: (req, res) => {
         db.User
             .find(req.query)
             .then(dbModel => res.json(dbModel))
@@ -13,10 +12,10 @@ module.exports = {
     //Create a user
     createUser: function(req, res) {
         db.User
-            .create(req.body)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.json(err))
-    },  
+          .create(req.body)
+          .then(dbModel => res.json(dbModel))
+          .catch(err => res.json(err));
+  },
     //Update user
     updateUser: function(req, res) {
         db.User

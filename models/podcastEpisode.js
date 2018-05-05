@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const podcastSchema = new Schema({
+const podcastEpisodeSchema = new Schema({
   show: {
     type: String,
     required: true
@@ -23,10 +23,13 @@ const podcastSchema = new Schema({
     type: Date
   },
   feedUrl: {
-    type: Date
+    type: String
+  },
+  views: {
+    type: Number
   }
 });
 
-const Podcast = mongoose.model('Podcast', podcastSchema);
+const PodcastEpisode = mongoose.model('PodcastEpisode', podcastEpisodeSchema);
 
-module.exports = Podcast;
+module.exports = PodcastEpisode;
