@@ -62,15 +62,11 @@ export default withAuth(class CreateAccount extends React.Component{
       },
       body: JSON.stringify(this.state)
     }).then(user => {
-
-      console.log("user", user);
-
       this.oktaAuth.signIn({
         username: this.state.email,
         password: this.state.password
       })
       .then(res => {
-        console.log('res');
         this.setState({
         sessionToken: res.sessionToken
       })
