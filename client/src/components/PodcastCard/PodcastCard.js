@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Pill from "./Pill";
 import { Link } from 'react-router-dom'
 import "./PodcastCard.css"
+import API from "../../utils/API.js"
 
 class PodcastCard extends Component {
 
@@ -63,6 +64,7 @@ class PodcastCard extends Component {
   }
   handlePodcastSelect = (event) => {
     console.log(this.props)
+    API.addPodcast({artistId: 1233})
   }
 
 }

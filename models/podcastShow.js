@@ -25,7 +25,7 @@ const PodcastShowSchema = new Schema({
   },
   artworkUrl100: {
     type: String
-  }
+  },
   mostRecentRelease: {
     type: String
   },

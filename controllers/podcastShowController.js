@@ -19,6 +19,7 @@ module.exports = {
       .catch(err => res.json(dbModel))
   },
   addPodcast: function(req, res) {
+    console.log(req.body);
     db.PodcastShow
       .create(req.body)
       .then(dbModel => res.json(dbModel))
