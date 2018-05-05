@@ -27,7 +27,7 @@ class App extends Component{
           <Route path = "/" exact component = {Home} />
           <Route path = "/implicit/callback" component = {ImplicitCallback} />
           <Route path = "/login" render={() => <Login baseUrl = {process.env.REACT_APP_ISSUER.split("/oauth2")[0]} />} />
-          <Route path = "/account" exact component = {CreateAccount} />
+          <Route path = "/account" component = {CreateAccount} />
           <Route path = "/podcast/:id" component = {Episodes} />
           <SecureRoute path= "/profile" component = {Profile} />
         </Security>
