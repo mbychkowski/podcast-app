@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Episodes from "./pages/Episodes";
 import Profile from './pages/Profile';
 import Login from "./pages/Login";
+import CreateAccount from "./pages/CreateAccount";
 
 import "./App.css";
 
@@ -26,6 +27,7 @@ class App extends Component{
           <Route path = "/" exact component = {Home} />
           <Route path = "/implicit/callback" component = {ImplicitCallback} />
           <Route path = "/login" render={() => <Login baseUrl = {process.env.REACT_APP_ISSUER.split("/oauth2")[0]} />} />
+          <Route path = "/account" exact component = {CreateAccount} />
           <Route path = "/podcast/:id" component = {Episodes} />
           <SecureRoute path= "/profile" component = {Profile} />
         </Security>
