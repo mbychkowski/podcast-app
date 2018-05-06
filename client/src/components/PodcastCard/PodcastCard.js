@@ -16,7 +16,7 @@ class PodcastCard extends Component {
             {this.props.results.map(podcast => (
 
                 <div key = {podcast.collectionId}
-                className="max-w-sm rounded overflow-hidden shadow-lg hover:bg-blue-lighter sm:w-full md:w-1/2 lg:w-1/4 xl:w-1/5 p-2">
+                className="max-w-sm rounded overflow-hidden shadow-lg hover:bg-blue-lighter sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-2">
                   <Link to = {{
                       pathname: `/podcast/${podcast.collectionId}`,
                       state:
