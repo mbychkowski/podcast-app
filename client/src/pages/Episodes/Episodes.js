@@ -79,4 +79,4 @@ class Episodes extends Component {
   }
 }
 
-export default Episodes
+export default Episodes;
