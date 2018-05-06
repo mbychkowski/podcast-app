@@ -3,4 +3,4 @@ import "./EpisodeList.css"
 
 // RecipeList renders a bootstrap list item
 export const EpisodeList = props =>
-  <ul className="list-group">{props.children}</ul>;
+  <ul className="text-lg list-group">{props.children}</ul>;
