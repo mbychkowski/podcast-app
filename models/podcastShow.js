@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const PodcastShowSchema = new Schema({
   artistId: {
-    type: String
+    type: Number
   },
-  collectionID: {
-    type: String
+  collectionId: {
+    type: Number
   },
   artistName: {
     type: String
@@ -31,6 +31,10 @@ const PodcastShowSchema = new Schema({
   },
   genre: {
     type: Array
+  },
+  views: {
+    type: Number,
+    default: 1
   }
 })
 
