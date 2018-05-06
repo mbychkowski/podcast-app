@@ -31,7 +31,9 @@ class Episodes extends Component {
         this.setState({
           items: res.data.items,
           feed: res.data.feed
-        })).then(console.log(this.state)).catch(err => console.log(err));
+        }))
+        .then(res => console.log(res.data))
+        .catch(err => console.log(err));
   };
 
   // Create a function that will post the selected podcast to the db
