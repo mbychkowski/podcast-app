@@ -9,7 +9,11 @@ class TopPodcasts extends Component {
     return(
       <div className="max-w-md w-full border-t border-r">
         <h1>Top 10 Podcasts</h1>
+
+        {/* Map the get call for the top ten podcasts to the component */}
         {this.props.searchTopTen.map(podcastShows => (
+
+          // Provide the ability to pass information about the selected podcast to the displayed eposide list
           <Link to = {{
               pathname: `/podcast/${podcastShows.collectionId}`,
               state:
@@ -27,6 +31,8 @@ class TopPodcasts extends Component {
                   genre : podcastShows.genres
                 }
           }}
+          
+          // Remove the styling from the text for a URL
           style={{ textDecoration: 'none' }}>
           <div key={podcastShows._id} className="border-r border-b border-l border-grey-light lg:border-l-0  lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
 

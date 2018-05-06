@@ -9,11 +9,16 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.json(err))
   },
+
   // Find the top ten Podcasts
   topTenShows: function(req,res){
     db.PodcastShow
       .find(req.query)
+
+      //Sort the podcasts by views in descending order
       .sort({views: -1})
+
+      // Only display the first 10 which translates to the top ten in this case
       .limit(10)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.json(dbModel))
@@ -22,17 +27,25 @@ module.exports = {
     //find if the entry already exists in the db
     var query = db.PodcastShow.where({collectionId: req.body.collectionId})
     query.findOne(function (err, results){
+
       //If the query does not exist in the db
       if (err) return handleError(err);
-      //if the query does exist in the
+
+      //If the queries do exist in the db
       if (results) {
         db.PodcastShow.findOneAndUpdate(
-        {collectionId: req.body.collectionId},
-        { $inc: {views: 1} },
-        {
-          upsert: true,
-          new: true
-        },
+
+          //Match the selected Podcast with the collectionId field
+          {collectionId: req.body.collectionId},
+
+          // Increase the views by 1
+          { $inc: {views: 1} },
+
+          // Allow new entries if it doesnt exist
+          {
+            upsert: true,
+            new: true
+          },
         function(error, res){
           if (error){
             console.log(error)

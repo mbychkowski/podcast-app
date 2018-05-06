@@ -37,13 +37,19 @@ class SearchAndResults extends Component {
         return(
             <div>
               <Jumbotron className="w-full" saveResults={this.saveResults} />
+              {/* display the content so that it wraps */}
                 <div className="flex flex-wrap">
+
+                  {/* Make each div responsive to a screen size */}
                   <div className="xl:w-1/5 lg:w-1/5 md:1/3 sm:w-1/2 flex flex-wrap group">
                     <TopPodcasts className="w-full" searchTopTen={this.state.topTenShows}/>
                   </div>
+
+                  {/* Make each div responsive to a screen size */}
                   <div className="xl:w-4/5 lg:w-4/5 md:2/3 sm:w-1/2 flex flex-wrap group">
                     <PodcastList results={this.state.results}/>
                   </div>
+                  
                 </div>
             </div>
         )
