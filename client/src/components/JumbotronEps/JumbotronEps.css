@@ -1,26 +1,35 @@
 .podcastHeading {
   overflow: hidden;
-  max-width: 576px;
-  color: #F0FFF0;
-  text-shadow: 2px 2px 4px #000000;
+  color: #000000;
+  text-shadow: 1px 1px 2px #808080;
 }
 
 .description{
-  color: #F0FFF0;
-  background-color: #808080;
+  color: #000000;
+  background-color: #FCE6C8;
   font-weight: lighter;
-  text-shadow: 1px 1px 2px #000000;
-  max-height: 40%;
 }
 
 .author {
-  color: #FFC86D;
-  text-shadow: 1px 1px 2px #000000;
-  float: left;
+  color: #000000;
+  text-shadow: 0.5px 0.5px 1px #FFC86D;
 
 }
 
-.picInfo {
-  flex-shrink: 1;
+.main {
+  background-color: #FFC86D;
+  max-height: 85%;
+    margin-top: 10%;
+    margin-left: 0;
+    margin-right: 10%;
+    margin-bottom: 10%;
+}
 
+.img {
+  	max-width: 55%;
+    max-height: 55%;
+      margin-top: 10%;
+      margin-left: 0;
+      margin-right: 10%;
+      margin-bottom: 10%;
 }
