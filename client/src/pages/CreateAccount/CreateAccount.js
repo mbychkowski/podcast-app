@@ -52,8 +52,6 @@ export default withAuth(class CreateAccount extends React.Component{
   handleSubmit(e){
     e.preventDefault();
 
-    console.log("button clicked")
-
     fetch('/api/users', {
       method: 'POST',
       headers: {
