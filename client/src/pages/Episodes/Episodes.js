@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 
-import { EpisodeList, EpisodeListItem } from "../../components/EpisodeList";
+import EpisodeList from "../../components/EpisodeList/EpisodeList.js";
+import EpisodeListItem from "../../components/EpisodeList/EpisodeListItem.js"
 import Jumbotron from "../../components/JumbotronEps";
 import PropTypes from 'prop-types';
 
@@ -66,12 +67,18 @@ class Episodes extends Component {
       <EpisodeList>
 
         {this.state.items.map(item => {
+
           return (
             <EpisodeListItem
               key={item.title}
+              collectionid = {this.props.location.state.collectionid}
+              collectionname = {this.props.location.state.collectionname}
               title={item.title}
               thumbnail={item.image}
               audio={item.enclosure.link}
+              host = {this.props.location.state.artistname}
+              genre = {this.props.location.state.genre}
+              releasedate = {item.pubDate}
             />
           )
         })}

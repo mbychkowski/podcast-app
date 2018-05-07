@@ -1,18 +1,9 @@
 const db = require("../models")
 
-//Export all controllers around a podcast
 module.exports = {
-  //find all podcasts
-  findAll: function(req,res) {
-    db.PodcastShow
-      .find(req.query)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.json(err))
-  },
-
   // Find the top ten Podcasts
-  topTenShows: function(req,res){
-    db.PodcastShow
+  topTenEoisodes: function(req,res){
+    db.PodcastEpisode
       .find(req.query)
 
       //Sort the podcasts by views in descending order
@@ -23,10 +14,11 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.json(dbModel))
   },
-  // Post the podcast show to the db
-  addPodcast: function(req, res) {
+
+  //Add a podcast episode to the db
+  addPodcastEpisode: function(req, res) {
     //find if the entry already exists in the db
-    var query = db.PodcastShow.where({collectionId: req.body.collectionId})
+    var query = db.PodcastEpisode.where({collectionid: req.body.collectionid})
     query.findOne(function (err, results){
 
       //If the query does not exist in the db
@@ -34,10 +26,10 @@ module.exports = {
 
       //If the queries do exist in the db
       if (results) {
-        db.PodcastShow.findOneAndUpdate(
+        db.PodcastEpisode.findOneAndUpdate(
 
           //Match the selected Podcast with the collectionId field
-          {collectionId: req.body.collectionId},
+          {collectionid: req.body.collectionid},
 
           // Increase the views by 1
           { $inc: {views: 1} },
@@ -55,7 +47,7 @@ module.exports = {
           }
         }) // Closes the findOneAndUpdate response
       } else {
-        db.PodcastShow
+        db.PodcastEpisode
           .create(req.body)
           .then(dbModel => res.json(dbModel))
           .catch(dbModel => res.json(dbModel))

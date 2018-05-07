@@ -1,9 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const podcastEpisodeSchema = new Schema({
+const podcastEpisodeSchema = new Schema(
+  {
   showTitle: {
     type: String,
+  },
+  collectionid: {
+    type: String
+  },
+  audioUrl: {
+    type: String
   },
   showHost: {
     type: String,
@@ -14,12 +21,6 @@ const podcastEpisodeSchema = new Schema({
   episodeTitle: {
     type: String
   },
-  episodeSubTitle: {
-    type: String
-  },
-  episodeDuration: {
-    type: String
-  },
   episodeThumbnail: {
     type: String
   },
@@ -27,7 +28,8 @@ const podcastEpisodeSchema = new Schema({
     type: Date
   },
   views: {
-    type: Number
+    type: Number,
+    default: 1
   }
 });
 

@@ -42,6 +42,9 @@ export default {
   //Add a podcast to the db
   addPodcast: function(podcastData){
     return axios.post("/api/podcastShow", podcastData)
+  },
+  //Add a podcast episode to the db
+  addEpisode: function(episodeData){
+    return axios.post("/api/podcastEpisode", episodeData)
   }
-
 }
