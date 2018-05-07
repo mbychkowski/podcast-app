@@ -1,0 +1,39 @@
+/* Here we can add any custom overrides */
+
+.field {
+  @apply .border .py-2 .px-3 .text-grey-darkest;
+}
+
+.field-label {
+  @apply .uppercase .font-bold .text-lg .text-grey-darkest .mb-2;
+}
+
+.field-group {
+  @apply .flex .flex-col;
+}
+
+.btn {
+  @apply .block .text-white .uppercase .text-lg .p-4;
+}
+
+.btn-teal {
+  @apply .bg-teal;
+}
+
+.btn-teal:hover {
+  @apply .bg-teal-dark;
+}
+
+.link {
+  @apply .block .no-underline .text-sm;
+}
+
+.link-grey {
+  @apply .text-grey-dark;
+}
+
+.link-grey:hover {
+  @apply .text-grey-darker;
+}
+
+@tailwind utilities;
