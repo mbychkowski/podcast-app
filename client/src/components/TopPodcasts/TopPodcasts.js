@@ -7,7 +7,7 @@ class TopPodcasts extends Component {
 
   render(){
     return(
-      <div className="max-w-md w-full border-t border-r">
+      <div className="max-w-md w-full sm:w-18 border-t border-r">
         <h1>Top 10 Podcasts</h1>
 
         {/* Map the get call for the top ten podcasts to the component */}
@@ -31,7 +31,7 @@ class TopPodcasts extends Component {
                   genre : podcastShows.genres
                 }
           }}
-          
+
           // Remove the styling from the text for a URL
           style={{ textDecoration: 'none' }}>
           <div key={podcastShows._id} className="border-r border-b border-l border-grey-light lg:border-l-0  lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
