@@ -34,7 +34,7 @@ class PodcastCard extends Component {
                         }
                   }}
                     style={{ textDecoration: 'none' }}>
-                    <img className="podcastImg w-full" src={podcast.artworkUrl600} alt="Sunset in the mountains" />
+                    <img className="podcastImg w-full h-auto" src={podcast.artworkUrl600} alt="Sunset in the mountains" />
                     <div className="collection px-6 py-4">
                         <div className="font-bold text-xl mb-2 podcastText">{podcast.collectionName}</div>
                         <p className="text-grey-darker text-base">
