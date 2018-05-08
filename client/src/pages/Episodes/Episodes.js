@@ -74,11 +74,13 @@ class Episodes extends Component {
               collectionid = {this.props.location.state.collectionid}
               collectionname = {this.props.location.state.collectionname}
               title={item.title}
-              thumbnail={item.image}
+              // showid = {item.episode._text}
+              thumbnail={this.props.location.state.artworkurl30}
               audio={item.enclosure.link}
               host = {this.props.location.state.artistname}
               genre = {this.props.location.state.genre}
               releasedate = {item.pubDate}
+              views = {item.views}
             />
           )
         })}
@@ -88,4 +90,4 @@ class Episodes extends Component {
   }
 }
 
-export default Episodes
+export default Episodes;

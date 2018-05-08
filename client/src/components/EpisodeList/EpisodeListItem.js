@@ -7,12 +7,13 @@ class EpisodeListItem extends Component {
     console.log(this.props);
 
     const selectedPodcastEpisode = {
-      showTitle: this.props.title,
+      episodeTitle: this.props.title,
       collectionid: this.props.collectionid,
       audioUrl: this.props.audio ,
       showHost: this.props.host ,
       genre: this.props.genre,
-      episodeTitle: this.props.collectionname,
+      showTitle: this.props.collectionname,
+      // showId: this.props.showid,
       episodeThumbnail: this.props.thumbnail,
       releaseDate: this.props.releasedate
     }

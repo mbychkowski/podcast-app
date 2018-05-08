@@ -7,14 +7,14 @@ class PodcastList extends Component {
     render() {
         return(
             <div className="podcastList flex items-start">
-                <PodcastCard 
+                <PodcastCard
                 results = {this.props.results}
-                />    
-            </div> 
+                />
+            </div>
         )
-         
+
     }
-       
+
 }
 
 

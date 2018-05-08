@@ -43,10 +43,10 @@ export default withAuth(class Navbar extends Component {
             {this.state.authenticated === true && <Menu.Item id="profile-button" as="a" href="/profile">Profile</Menu.Item>}
             {this.state.authenticated === true && <Menu.Item id="logout-button" as="a" onClick={this.logout}>Logout</Menu.Item>}
             {this.state.authenticated === false && <Menu.Item as="a" onClick={this.login}>Login</Menu.Item>}
+            {this.state.authenticated === false && <Menu.Item id="create-account" as="a" href="/account">Sign Up</Menu.Item>}
           </Container>
         </Menu>
       </div>
     );
   }
 });
-

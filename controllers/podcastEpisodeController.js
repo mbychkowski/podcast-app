@@ -18,7 +18,7 @@ module.exports = {
   //Add a podcast episode to the db
   addPodcastEpisode: function(req, res) {
     //find if the entry already exists in the db
-    var query = db.PodcastEpisode.where({collectionid: req.body.collectionid})
+    var query = db.PodcastEpisode.where({episodeTitle: req.body.episodeTitle})
     query.findOne(function (err, results){
 
       //If the query does not exist in the db

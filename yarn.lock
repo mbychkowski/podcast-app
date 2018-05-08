@@ -37,6 +37,17 @@
     babel-runtime "^6.26.0"
     prop-types "^15.5.10"
 
+"@okta/okta-sdk-nodejs@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@okta/okta-sdk-nodejs/-/okta-sdk-nodejs-1.1.0.tgz#16731414aacb09c809c2d03a92eb531df6e235ea"
+  dependencies:
+    "@okta/openapi" "^0.13.0"
+    flat "^2.0.1"
+    isomorphic-fetch "2.2.1"
+    js-yaml "^3.8.4"
+    lodash "^4.17.4"
+    parse-link-header "1.0.0"
+
 "@okta/okta-signin-widget@^2.8.0":
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/@okta/okta-signin-widget/-/okta-signin-widget-2.8.0.tgz#ec739697a1275fd5398af86711530b68a3d6a5c3"
@@ -55,6 +66,15 @@
     underscore "1.8.3"
   optionalDependencies:
     fsevents "*"
+
+"@okta/openapi@^0.13.0":
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/@okta/openapi/-/openapi-0.13.0.tgz#39a5c8c82a003e652ae41f4fe766911afa053aa8"
+  dependencies:
+    commander "2.9.0"
+    fs-extra "3.0.1"
+    handlebars "4.0.8"
+    json-stable-stringify "1.0.1"
 
 Base64@0.3.0:
   version "0.3.0"
@@ -742,6 +762,12 @@ commander@2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.6.0.tgz#9df7e52fb2a0cb0fb89058ee80c3104225f37e1d"
 
+commander@2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.9.0.tgz#9c99094176e12240cb22d6c5146098400fe0f7d4"
+  dependencies:
+    graceful-readlink ">= 1.0.0"
+
 component-emitter@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/component-emitter/-/component-emitter-1.2.1.tgz#137918d6d78283f7df7a6b7c5a63e140e69425e6"
@@ -1377,6 +1403,12 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
+flat@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/flat/-/flat-2.0.1.tgz#70e29188a74be0c3c89409eed1fa9577907ae32f"
+  dependencies:
+    is-buffer "~1.1.2"
+
 flush-write-stream@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/flush-write-stream/-/flush-write-stream-1.0.3.tgz#c5d586ef38af6097650b49bc41b55fabb19f35bd"
@@ -1437,6 +1469,14 @@ from2@^2.1.0:
 from@~0:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/from/-/from-0.1.7.tgz#83c60afc58b9c56997007ed1a768b3ab303a44fe"
+
+fs-extra@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-3.0.1.tgz#3794f378c58b342ea7dbbb23095109c4b3b62291"
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^3.0.0"
+    universalify "^0.1.0"
 
 fs-minipass@^1.2.5:
   version "1.2.5"
@@ -1598,9 +1638,23 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@~4.1.11
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
+"graceful-readlink@>= 1.0.0":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
+
 handlebars@4.0.5:
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.0.5.tgz#92c6ed6bb164110c50d4d8d0fbddc70806c6f8e7"
+  dependencies:
+    async "^1.4.0"
+    optimist "^0.6.1"
+    source-map "^0.4.4"
+  optionalDependencies:
+    uglify-js "^2.6"
+
+handlebars@4.0.8:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.0.8.tgz#22b875cd3f0e6cbea30314f144e82bc7a72ff420"
   dependencies:
     async "^1.4.0"
     optimist "^0.6.1"
@@ -1882,7 +1936,7 @@ is-binary-path@^1.0.0:
   dependencies:
     binary-extensions "^1.0.0"
 
-is-buffer@^1.1.5:
+is-buffer@^1.1.5, is-buffer@~1.1.2:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
 
@@ -2071,7 +2125,7 @@ isobject@^3.0.0, isobject@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
 
-isomorphic-fetch@^2.1.1:
+isomorphic-fetch@2.2.1, isomorphic-fetch@^2.1.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz#611ae1acf14f5e81f729507472819fe9733558a9"
   dependencies:
@@ -2102,7 +2156,7 @@ js-tokens@^3.0.0, js-tokens@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
 
-js-yaml@^3.9.1:
+js-yaml@^3.8.4, js-yaml@^3.9.1:
   version "3.11.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.11.0.tgz#597c1a8bd57152f26d622ce4117851a51f5ebaef"
   dependencies:
@@ -2129,9 +2183,25 @@ json-stable-stringify-without-jsonify@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz#9db7b59496ad3f3cfef30a75142d2d930ad72651"
 
+json-stable-stringify@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/json-stable-stringify/-/json-stable-stringify-1.0.1.tgz#9a759d39c5f2ff503fd5300646ed445f88c4f9af"
+  dependencies:
+    jsonify "~0.0.0"
+
 json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
+
+jsonfile@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-3.0.1.tgz#a5ecc6f65f53f662c4415c7675a0331d0992ec66"
+  optionalDependencies:
+    graceful-fs "^4.1.6"
+
+jsonify@~0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
 
 jsonparse@^1.2.0:
   version "1.3.1"
@@ -3170,6 +3240,12 @@ parallel-transform@^1.1.0:
     cyclist "~0.2.2"
     inherits "^2.0.3"
     readable-stream "^2.1.5"
+
+parse-link-header@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/parse-link-header/-/parse-link-header-1.0.0.tgz#df837bb74be8c02e79318014568faa89dc34e637"
+  dependencies:
+    xtend "~4.0.0"
 
 parseurl@~1.3.2:
   version "1.3.2"
@@ -4402,6 +4478,10 @@ unique-string@^1.0.0:
   dependencies:
     crypto-random-string "^1.0.0"
 
+universalify@^0.1.0:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.1.tgz#fa71badd4437af4c148841e3b3b165f9e9e590b7"
+
 unpipe@1.0.0, unpipe@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
@@ -4590,7 +4670,7 @@ xhr2@0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/xhr2/-/xhr2-0.1.3.tgz#cbfc4759a69b4a888e78cf4f20b051038757bd11"
 
-xtend@~4.0.1:
+xtend@~4.0.0, xtend@~4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
 

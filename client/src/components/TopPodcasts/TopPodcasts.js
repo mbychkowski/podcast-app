@@ -11,7 +11,7 @@ class TopPodcasts extends Component {
         <h1>Top 10 Podcasts</h1>
 
         {/* Map the get call for the top ten podcasts to the component */}
-        {this.props.searchTopTen.map(podcastShows => (
+        {this.props.searchTopTenShows.map(podcastShows => (
           <div key={podcastShows._id}>
 
             {/* Provide the ability to pass information about the selected podcast to the displayed eposide list */}

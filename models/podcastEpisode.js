@@ -13,7 +13,10 @@ const podcastEpisodeSchema = new Schema(
     type: String
   },
   showHost: {
-    type: String,
+    type: String
+  },
+  showId: {
+    type: String
   },
   genre: {
     type: Array
