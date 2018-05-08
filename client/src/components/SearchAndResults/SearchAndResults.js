@@ -49,7 +49,7 @@ class SearchAndResults extends Component {
                   <div className="xl:w-4/5 lg:w-4/5 md:2/3 sm:w-1/2 flex flex-wrap group">
                     <PodcastList results={this.state.results}/>
                   </div>
-                  
+
                 </div>
             </div>
         )
