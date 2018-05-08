@@ -1,6 +1,7 @@
 import React from 'react';
 import OktaAuth from '@okta/okta-auth-js';
 import { withAuth } from '@okta/okta-react';
+import API from "../../utils/API";
 
 import "./CreateAccount.css"
 
@@ -37,7 +38,7 @@ export default withAuth(class CreateAccount extends React.Component{
   }
 
   handleFirstNameChange(e){
-    this.setState({firstName:e.target.value});
+    this.setState({ firstName:e.target.value });
   }
   handleLastNameChange(e) {
     this.setState({ lastName: e.target.value });
@@ -49,8 +50,19 @@ export default withAuth(class CreateAccount extends React.Component{
     this.setState({ password: e.target.value });
   }
 
+  addUser = () => {
+    const userData = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      email: this.state.email
+    }
+    API.saveUser(userData);
+  }
+
   handleSubmit(e){
     e.preventDefault();
+
+    this.addUser();
 
     fetch('/api/users', {
       method: 'POST',
