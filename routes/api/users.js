@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const userController = "../../controllers/userController.js"
+const userController = require("../../controllers/userController")
 const oktaClient = require("../../lib/oktaClient");
 
 /* Create a new User (register). */
@@ -30,7 +30,7 @@ router.post('/', (req, res, next) => {
 });
 
 // Matches with "/api/user/:id"
-router.route("/:id")
+router.route("/db")
   .post(userController.createUser)
 
   // .get(userController.findById)
