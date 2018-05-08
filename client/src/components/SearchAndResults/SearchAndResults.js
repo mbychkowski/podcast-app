@@ -62,7 +62,9 @@ class SearchAndResults extends Component {
                     <TopPodcasts className="w-full" searchTopTenShows={this.state.topTenShows}/>
 
                     {/* Display the top podcast episodes */}
-
+                    <div className="max-w-md w-full border-t border-r">
+                      <h1>Top Episodes</h1>
+                    </div>
                     {this.state.topTenEpisodes.map(episode => {
                       return(
                         <TopEpisodes

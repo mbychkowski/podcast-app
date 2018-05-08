@@ -24,29 +24,31 @@ class TopEpisodes extends Component {
   render(){
     return(
 
-      <div key = {this.props.key}>
-        <div className>
+      //Map through each
 
-          <div className="mb-8">
+        <div className="max-w-md w-full border-t border-r">
+          <div className="border-r border-b border-l border-grey-light lg:border-l-0  lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+            <div className="mb-8">
 
-            <div className="text-black font-bold text-xl mb-2">{this.props.collectionname}</div>
-          </div>
-
-          <div className="flex items-center">
-            <img className="w-10 h-10 rounded-full mr-4" src={this.props.thumbnail} alt="Avatar of Jonathan Reinink"/>
-            <div className="text-sm">
-              <p className="text-black leading-none">{this.props.host}</p>
-              <p className="text-grey-dark">Views: {this.props.views}</p>
+              <div className="text-black font-bold text-xl mb-2">{this.props.title}</div>
             </div>
+
+            <div className="flex items-center">
+              <img className="w-10 h-10 rounded-full mr-4" src={this.props.thumbnail} alt={this.props.title}/>
+              <div className="text-sm">
+                <p className="text-black leading-none">{this.props.collectionname}</p>
+                <p className="text-grey-dark">Views: {this.props.views}</p>
+              </div>
+            </div>
+            <span>
+              <audio controls {...this.props} onPlay = {this.handleEpisodePost}>
+                <source src={this.props.audio} type="audio/mpeg" />
+                  Your browser does not support the audio element.
+              </audio>
+            </span>
           </div>
-          <span>
-            <audio controls {...this.props} onPlay = {this.handleEpisodePost}>
-              <source src={this.props.audio} type="audio/mpeg" />
-                Your browser does not support the audio element.
-            </audio>
-          </span>
         </div>
-      </div>
+
 
 
 
