@@ -28,8 +28,4 @@ router.post('/', (req, res, next) => {
     })
 });
 
-router.get('/', (req, res) => {
-  res.json({"hello":"world"})
-});
-
 module.exports = router;
