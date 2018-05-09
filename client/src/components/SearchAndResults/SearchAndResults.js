@@ -53,7 +53,7 @@ class SearchAndResults extends Component {
     render() {
         return(
             <div>
-              <Jumbotron className="w-full" saveResults={this.saveResults} />
+              <Jumbotron className="w-full content-center" saveResults={this.saveResults} />
               {/* display the content so that it wraps */}
                 <div>
 

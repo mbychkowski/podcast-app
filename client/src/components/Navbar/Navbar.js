@@ -2,6 +2,7 @@ import { withAuth } from '@okta/okta-react';
 import React, { Component } from 'react';
 import { Container, Icon, Image, Menu } from 'semantic-ui-react';
 import { checkAuthentication } from '../../helpers/helpers';
+import Searchbar from "../Searchbar/Searchbar.js"
 
 import "./Navbar.css";
 
@@ -44,8 +45,10 @@ export default withAuth(class Navbar extends Component {
             {this.state.authenticated === true && <Menu.Item id="logout-button" as="a" onClick={this.logout}>Logout</Menu.Item>}
             {this.state.authenticated === false && <Menu.Item as="a" onClick={this.login}>Login</Menu.Item>}
             {this.state.authenticated === false && <Menu.Item id="create-account" as="a" href="/account">Sign Up</Menu.Item>}
+              <Searchbar />
           </Container>
         </Menu>
+
       </div>
     );
   }

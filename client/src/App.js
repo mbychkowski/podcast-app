@@ -17,6 +17,18 @@ function onAuthRequired({history}) {
 }
 
 class App extends Component{
+
+  // Know which page we are on so we can display/hide the searchbar
+  state = {
+    currentPage : "/"
+  }
+  pageChange = page => {
+    this.setState({
+      currentPage : page
+    })
+  }
+
+
   render() {
     return (
       <Router>
@@ -25,7 +37,11 @@ class App extends Component{
                   redirect_uri = {process.env.REACT_APP_REDIRECT_URI}
                   onAuthRequired = {onAuthRequired} >
           <Navbar />
-          <Route path = "/" exact component = {Home} />
+          <Route
+            path = "/"
+            exact component = {Home}
+            pageChange = {this.pageChange}
+          />
           <Route path = "/implicit/callback" component = {ImplicitCallback} />
           <Route path = "/login" render={() => <Login baseUrl = {process.env.REACT_APP_ISSUER.split("/oauth2")[0]} />} />
           <Route path = "/account" component = {CreateAccount} />

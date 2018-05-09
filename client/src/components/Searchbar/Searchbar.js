@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom'
 class Searchbar extends Component {
 
   state = {
-    search: ""
+    search: "",
+    state: this
   }
+
 
   // Handle the input change
   handleInputChange = event => {
@@ -30,9 +32,6 @@ class Searchbar extends Component {
   }
 
   handlePodcastSearch = event => {
-
-
-console.log("hello");
   }
 
 
