@@ -3,28 +3,33 @@ import "./Searchbar.css"
 
 const Searchbar = props =>  {
 
-        return(
-            <form className="w-1/2 self-center searchBar">
-                <div className="flex items-center border-b border-b-2 border-teal py-2">
-                    <input
-                      className="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2"
-                      type="text"
-                      name="search"
-                      placeholder="Search for a Podcast"
-                      aria-label="Full name"
-                      onChange={props.handleInputChange}
-                      value = {props.search}
-                     />
-                    <button
-                      className="flex-no-shrink bg-teal hover:bg-teal-dark border-teal hover:border-teal-dark text-sm border-4 text-white py-1 px-2 rounded"
-                      type="button"
-                      onClick = {props.handlePodcastSearch}
-                      >
-                    Search
-                    </button>
-                </div>
-            </form>
-        )
+  return(
+    <div className="flex items-center h-screen w-full">
+      <div className="w-full bg-transparent p-4 m-4 md:max-w-sm md:mx-auto">
+        <form className="mb-4 md:flex md:flex-wrap md:justify-between">
+          <div>
+          <input
+            className="bg-grey-lighter appearance-none border-2 border-grey-lighter hover:border-pink rounded w-3/4 py-2 px-4 text-grey-darker font-bold uppercase"
+            type="text"
+            name="search"
+            placeholder="Find a podcast"
+            aria-label="Full name"
+            onChange={props.handleInputChange}
+            value = {props.search}
+            >
+          </input>
+          <button
+            className="btn bg-pink hover:bg-pink-darker text-md text-white p-3 rounded"
+            type="button"
+            onClick = {props.handlePodcastSearch}
+            >
+            Search
+          </button>
+        </div>
+        </form>
+      </div>
+    </div>
+  )
 }
 
 export default Searchbar
