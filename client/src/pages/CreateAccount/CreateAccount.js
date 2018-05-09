@@ -56,8 +56,7 @@ export default withAuth(class CreateAccount extends React.Component{
       lastName: this.state.lastName,
       email: this.state.email
     }
-    console.log(userData);
-    // API.saveUser(userData);
+    API.saveUser(userData);
   }
 
   handleSubmit(e){
