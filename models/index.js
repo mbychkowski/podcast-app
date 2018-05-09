@@ -1,3 +1,5 @@
 module.exports = {
-  Podcast: require('./podcast')
+
+  PodcastEpisode: require('./podcastEpisode'),
+  PodcastShow: require('./podcastShow')
 };

@@ -14,10 +14,16 @@ class Jumbotron extends Component {
   handleInputChange = event => {
     const name = event.target.name
     const value = event.target.value
-
     this.setState({
       [name]: value
     })
+  }
+
+  // Handle Return/Enter Key press
+  returnKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      this.handlePodcastSearch(event)
+    }
   }
 
   //Search the iTunes Affiliate API
@@ -34,7 +40,6 @@ class Jumbotron extends Component {
   handlePodcastSearch = event => {
     event.preventDefault();
     this.searchItunes(this.state.search)
-
   }
 
 
@@ -42,9 +47,10 @@ class Jumbotron extends Component {
   render(){
 
     return(
-        <div className="jumbotron w-full flex content-center justify-center">
+        <div className="jumbotron bg-no-repeat flex content-center justify-center">
           <Searchbar
             handleInputChange = {this.handleInputChange}
+            returnKeyPress = {this.returnKeyPress}
             value = {this.state.search}
             handlePodcastSearch = {this.handlePodcastSearch}
            />

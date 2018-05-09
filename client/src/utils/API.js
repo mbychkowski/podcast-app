@@ -16,6 +16,39 @@ export default {
   // Convert RSS feed to readable json using rss2json API
   searchRss: function(query) {
     return axios.get(BASERSS + query);
-  }
+  },
 
+  //Get all users
+  getUsers: function(){
+    return axios.get("/api/users")
+  },
+  // Deletes the user with the given id
+  deleteUser: function(id) {
+    return axios.delete("/api/users/" + id);
+  },
+  // Saves a user to the database
+  saveUser: function(userData) {
+    return axios.post("/api/users/db", userData);
+  },
+
+  //Get a list of all the top ten podcasts
+  getTopTenShows: function(){
+    return axios.get("/api/podcastShow/topTen");
+  },
+  //Get s list of all saved podcasts
+  getPodcasts: function(){
+    return axios.get("/api/podcastShow")
+  },
+  //Add a podcast to the db
+  addPodcast: function(podcastData){
+    return axios.post("/api/podcastShow", podcastData)
+  },
+  //Add a podcast episode to the db
+  addEpisode: function(episodeData){
+    return axios.post("/api/podcastEpisode", episodeData)
+  },
+  //get the op podcasts from the database
+  getTopTenEpisodes: function(){
+    return axios.get("/api/podcastEpisode/topTen")
+  }
 }

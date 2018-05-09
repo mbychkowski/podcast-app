@@ -27,6 +27,21 @@ yarn start
 
 That's it, your app should be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
 
+## Wireframes
+
+### Home Page
+<img src ="Wireframe_Images/Podcast-Wireframe.png" width="400">
+
+### Login Page
+<img src="Wireframe_Images/Podcast-Wireframe3.png" width="400">
+
+### Favorites
+<img src= "Wireframe_Images/Podcast-Wireframe4.png" width="400">
+
+### Subscribed
+<img src= "Wireframe_Images/Podcast-Wireframe5.png" width="400">
+
+
 ## Deployment (Heroku)
 
 After confirming that you have an up to date git repository and a Heroku app created, complete the following:
