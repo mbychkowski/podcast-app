@@ -55,34 +55,35 @@ class SearchAndResults extends Component {
             <div>
               <Jumbotron className="w-full" saveResults={this.saveResults} />
               {/* display the content so that it wraps */}
-                <div className="flex flex-wrap">
+                <div>
 
                   {/* Make each div responsive to a screen size */}
-                    <div class=" w-full overflow-x-scroll ...">
+                    <div className="w-full content-center">
                       <TopPodcasts searchTopTenShows={this.state.topTenShows}/>
 
                     {/* Display the top podcast episodes */}
-                    <div className="max-w-md w-full border-t border-r">
-                      <h1>Top Episodes</h1>
+                    <div className="mx-4">
+                      <h1 className="text-center">Top Episodes</h1>
                     </div>
-                    {this.state.topTenEpisodes.map(episode => {
-                      return(
-                        <TopEpisodes
-                          key = {episode._id}
-                          className="w-full"
-                          title = {episode.episodeTitle}
-                          collectionid = {episode.collectionid}
-                          audio = {episode.audioUrl}
-                          host = {episode.showHost}
-                          genre = {episode.genre}
-                          collectionname = {episode.showTitle}
-                          thumbnail = {episode.episodeThumbnail}
-                          releasedate = {episode.releaseDate}
-                          views = {episode.views}
-                        />
-                      )
-
-                  })}
+                    <div className="w-5/6 group flex ml-auto mr-auto overflow-x-scroll ...">
+                      {this.state.topTenEpisodes.map(episode => {
+                        return(
+                          <TopEpisodes
+                            key = {episode._id}
+                            className="w-full"
+                            title = {episode.episodeTitle}
+                            collectionid = {episode.collectionid}
+                            audio = {episode.audioUrl}
+                            host = {episode.showHost}
+                            genre = {episode.genre}
+                            collectionname = {episode.showTitle}
+                            thumbnail = {episode.episodeThumbnail}
+                            releasedate = {episode.releaseDate}
+                            views = {episode.views}
+                          />
+                        )
+                      })}
+                    </div>
                   </div>
 
 
