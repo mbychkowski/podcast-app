@@ -1,31 +1,67 @@
-import React from "react";
+import React, {Component} from "react";
 import "./JumbotronEps.css"
 
-const JumbotronEps = props => {
-  return (
+class JumbotronEps extends Component{
 
-// jumbotron
+  //Has the logged in user subscribed to the podcast
+  state = {
+    subscribed: ""
+  }
 
-  <div className="flex-initial mx-auto jumbotron flex w-full mb-4">
+  //Allow a user to subscribe to a podcast
+  subscribe = () => {
+    const podcast = {
+      collectionId: this.props.selectedPodcast.collectionid,
+      artistId: this.props.selectedPodcast.artistid,
+      artistName: this.props.selectedPodcast.artistname,
+      artworkUrl100:this.props.selectedPodcast.artworkurl100,
+      feedUrl: this.props.selectedPodcast.feedUrl,
+      mostRecentRelease: this.props.selectedPodcast.mostrecentrelease
+    }
 
-{/* image */}
-    <img className="img float-left" src={props.image}></img>
-    <div className="main float-right shadow-md max-h-full rounded-b lg:rounded-b-none lg:rounded-r p-4 leading-normal">
-      <div className="mb-8 shadow-sm">
+    console.log('subscribe', podcast);
+  }
 
-{/* title */}
-        <div className="podcastHeading float-left text-2xl">{props.title}</div>
+  componentDidMount(){
+    console.log(this.props.selectedPodcast);
+  }
 
-{/* description */}
-        <div className="description max-h-screen flex-col h-32 p-2 text-base shadow-md overflow-y-scroll">
-          {props.description}
-          {/* author */}
-          <h4 className="author text-xl leading-normal float-right">{props.author}</h4>
+  render(){
+    return (
+
+  // jumbotron
+
+    <div className="flex-initial mx-auto jumbotron flex w-full mb-4">
+
+  {/* image */}
+      <img className="img float-left" src={this.props.image}></img>
+      <div className="main float-right shadow-md max-h-full rounded-b lg:rounded-b-none lg:rounded-r p-4 leading-normal">
+        <div className="mb-8 shadow-sm">
+
+  {/* title */}
+          <div className="podcastHeading float-left text-2xl">{this.props.title}</div>
+
+  {/* description */}
+          <div className="description max-h-screen flex-col h-32 p-2 text-base shadow-md overflow-y-scroll">
+            {this.props.description}
+            {/* author */}
+            <h4 className="author text-xl leading-normal float-right">{this.props.author}</h4>
+          </div>
         </div>
+
+        {/* Adding a div for the subscirbe button */}
+        <button
+          className="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full"
+          onClick = {this.subscribe}
+          >
+          Subscribe
+        </button>
+
       </div>
     </div>
-  </div>
-  )
+    )
+  }
+
 }
 
 //Export the Jumbotron

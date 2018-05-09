@@ -1,6 +1,7 @@
 import React from 'react';
 import OktaAuth from '@okta/okta-auth-js';
 import { withAuth } from '@okta/okta-react';
+import API from "../../utils/API";
 
 import "./CreateAccount.css"
 
@@ -37,7 +38,7 @@ export default withAuth(class CreateAccount extends React.Component{
   }
 
   handleFirstNameChange(e){
-    this.setState({firstName:e.target.value});
+    this.setState({ firstName:e.target.value });
   }
   handleLastNameChange(e) {
     this.setState({ lastName: e.target.value });
@@ -49,10 +50,21 @@ export default withAuth(class CreateAccount extends React.Component{
     this.setState({ password: e.target.value });
   }
 
+  addUser = () => {
+    const userData = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      email: this.state.email
+    }
+    API.saveUser(userData);
+  }
+
   handleSubmit(e){
     e.preventDefault();
 
-    fetch('/api/users', {
+    this.addUser();
+
+    fetch('/api/users/db', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -85,19 +97,19 @@ export default withAuth(class CreateAccount extends React.Component{
           <h1 className="block w-full text-center mb-6">Sign Up</h1>
           <form onSubmit={this.handleSubmit} className="mb-4 md:flex md:flex-wrap md:justify-between">
             <div className="field-group mb-4 md:w-1/2">
-              <label className="field-label" for="first_name">First Name</label>
+              <label className="field-label" htmlFor="first_name">First Name</label>
               <input value={this.state.firstName} onChange={this.handleFirstNameChange} className="field md:mr-2" type="text" name="first_name" id="first_name"/>
             </div>
             <div className="field-group mb-4 md:w-1/2">
-              <label className="field-label md:ml-2" for="last_name">Last Name</label>
+              <label className="field-label md:ml-2" htmlFor="last_name">Last Name</label>
               <input value={this.state.lastName} onChange={this.handleLastNameChange} className="field md:ml-2" type="text" name="last_name" id="last_name"/>
             </div>
             <div className="field-group mb-4 md:w-full">
-              <label className="field-label" for="email">Email</label>
+              <label className="field-label" htmlFor="email">Email</label>
               <input value={this.state.email} onChange={this.handleEmailChange} className="field" type="email" name="email" id="email"/>
             </div>
             <div className="field-group mb-4 md:w-full">
-              <label className="field-label" for="password">Password</label>
+              <label className="field-label" htmlFor="password">Password</label>
               <input value={this.state.password} onChange={this.handlePasswordChange} className="field" type="password" name="password" id="password"/>
             </div>
             <input type="submit" id="submit" value="Register" className="btn btn-teal mx-auto"></input>
