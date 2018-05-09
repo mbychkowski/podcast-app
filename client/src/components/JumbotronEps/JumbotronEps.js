@@ -4,7 +4,7 @@ import "./JumbotronEps.css"
 const JumbotronEps = props => {
   return (
 
-// jumbotron 
+// jumbotron
 
   <div className="flex-initial mx-auto jumbotron flex w-full mb-4">
 
