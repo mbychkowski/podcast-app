@@ -36,7 +36,7 @@ const PodcastShowSchema = new Schema({
     type: Number,
     default: 1
   }
-})
+});
 
 const PodcastShow = mongoose.model("PodcastShow", PodcastShowSchema )
 
