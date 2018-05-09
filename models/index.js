@@ -1,5 +1,5 @@
 module.exports = {
-
-  PodcastEpisode: require('./podcastEpisode'),
-  PodcastShow: require('./podcastShow')
+  Podcast: require('./podcastEpisode'),
+  PodcastShow: require('./podcastShow'),
+  User: require('./user')
 };
