@@ -5,7 +5,7 @@ const Searchbar = props =>  {
 
   return(
     <div className="flex items-center h-screen w-full">
-      <form className="w-full bg-transparent p-4 m-2 md:max-w-sm md:mx-auto">
+      <form className="w-full bg-transparent p-4 m-4 md:max-w-lg md:mx-auto">
         <input
           className="bg-grey-lighter appearance-none border-2 border-grey-lighter hover:border-pink rounded w-3/4 py-2 px-4 text-grey-darker font-bold uppercase"
           type="text"
@@ -16,7 +16,7 @@ const Searchbar = props =>  {
           value = {props.search}
         />
         <button
-          className="btn bg-pink hover:bg-pink-darker text-md text-white p-3 rounded"
+          className="block bg-pink hover:bg-pink-darker text-md text-white p-3 rounded"
           type="button"
           onClick = {props.handlePodcastSearch}
         >
