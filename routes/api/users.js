@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const oktaClient = require('../../lib/oktaClient');
+const userController = require("../../controllers/userController")
+const oktaClient = require("../../lib/oktaClient");
 
 /* Create a new User (register). */
 router.post('/', (req, res, next) => {
@@ -28,8 +29,16 @@ router.post('/', (req, res, next) => {
     })
 });
 
-router.get('/', (req, res) => {
-  res.json({"hello":"world"})
-});
+// Matches with "/api/user/:id"
+router.route("/db")
+  .post(userController.createUser)
+
+  // .get(userController.findById)
+  // .put(userController.updateUser)
+  // .delete(userController.removeUser)
+
+  // router.get('/', (req, res) => {
+  //   res.json({"hello":"world"})
+  // });
 
 module.exports = router;

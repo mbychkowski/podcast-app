@@ -28,7 +28,7 @@ export default {
   },
   // Saves a user to the database
   saveUser: function(userData) {
-    return axios.post("/api/users", userData);
+    return axios.post("/api/users/db", userData);
   },
 
   //Get a list of all the top ten podcasts
