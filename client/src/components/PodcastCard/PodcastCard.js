@@ -15,7 +15,7 @@ class PodcastCard extends Component {
             {/* Go through each result and map to a new array called podcasr. This will then dipslay the content from the response */}
             {this.props.results.map(podcast => (
 
-                <div key = {podcast.collectionId} className="collectionId max-w-kg rounded overflow-hidden shadow-lg hover:bg-grey-lighter sm:w-full md:w-1/2 lg:w-1/4 xl:w-1/5 p-2" feed = {podcast.feedUrl}>
+                <div key = {podcast.collectionId} className="collectionId max-w-kg rounded overflow-hidden shadow-lg hover:bg-grey-lighter sm:w-full md:w-1/2 lg:w-1/5 xl:w-1/5 p-2" feed = {podcast.feedUrl}>
                   <Link to = {{
                       pathname: `/podcast/${podcast.collectionId}`,
                       state:

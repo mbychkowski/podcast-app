@@ -8,6 +8,7 @@ import Episodes from "./pages/Episodes";
 import Profile from './pages/Profile';
 import Login from "./pages/Login";
 import CreateAccount from "./pages/CreateAccount";
+import SearchResults from "./pages/SearchResults";
 
 import "./App.css";
 
@@ -29,6 +30,7 @@ class App extends Component{
           <Route path = "/login" render={() => <Login baseUrl = {process.env.REACT_APP_ISSUER.split("/oauth2")[0]} />} />
           <Route path = "/account" component = {CreateAccount} />
           <Route path = "/podcast/:id" component = {Episodes} />
+          <Route path = "/search" component = {SearchResults} />
           <SecureRoute path= "/profile" component = {Profile} />
         </Security>
       </Router>
