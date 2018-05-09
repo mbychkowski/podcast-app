@@ -13,6 +13,7 @@ const Searchbar = props =>  {
                       placeholder="Search for a Podcast"
                       aria-label="Full name"
                       onChange={props.handleInputChange}
+                      onKeyPress={props.returnKeyPress}
                       value = {props.search}
                      />
                     <button
@@ -25,6 +26,6 @@ const Searchbar = props =>  {
                 </div>
             </form>
         )
-}
+      }
 
 export default Searchbar
