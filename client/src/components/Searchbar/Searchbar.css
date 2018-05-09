@@ -1,5 +1,5 @@
 .search-field-style {
-  @apply .rounded .border-2 .border-grey-lighter .bg-grey-lighter .text-grey-darker .uppercase;
+  @apply .rounded .border-2 .border-grey-darkest .bg-grey-lighter .text-grey-darker .uppercase;
 }
 
 .search-button-style {
