@@ -4,24 +4,26 @@ import "./Searchbar.css"
 const Searchbar = props =>  {
 
   return(
-    <div className="flex items-center h-screen w-full">
-      <form className="w-full bg-transparent p-4 m-4 md:max-w-lg md:mx-auto">
-        <input
-          className="bg-grey-lighter appearance-none border-2 border-grey-lighter hover:border-pink rounded w-3/4 py-2 px-4 text-grey-darker font-bold uppercase"
-          type="text"
-          name="search"
-          placeholder="Find a podcast"
-          aria-label="Full name"
-          onChange={props.handleInputChange}
-          value = {props.search}
-        />
-        <button
-          className="block bg-pink hover:bg-pink-darker text-md text-white p-3 rounded"
-          type="button"
-          onClick = {props.handlePodcastSearch}
-        >
-          Search
-        </button>
+    <div className="flex w-full items-center">
+      <form className="bg-transparent d:flex md:flex-wrap md:justify-between">
+        <div className="w-full max-w-lg">
+          <input
+            className="p-2 mr-2 search-field-style hover:border-pink"
+            type="text"
+            name="search"
+            placeholder="Find a podcast"
+            aria-label="Full name"
+            onChange={props.handleInputChange}
+            value = {props.search}
+          />
+          <button
+            className="p-3 search-button-style hover:bg-pink-darker"
+            type="button"
+            onClick = {props.handlePodcastSearch}
+          >
+            Search
+          </button>
+        </div>
       </form>
     </div>
   )

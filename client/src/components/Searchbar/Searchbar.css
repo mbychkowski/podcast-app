@@ -1,1 +1,9 @@
+.search-field-style {
+  @apply .rounded .border-2 .border-grey-lighter .bg-grey-lighter .text-grey-darker .uppercase;
+}
 
+.search-button-style {
+  @apply .rounded .bg-pink .text-white .uppercase;
+}
+
+@tailwind utilities;
