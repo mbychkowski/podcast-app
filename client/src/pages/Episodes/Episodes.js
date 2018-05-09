@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 
-import { EpisodeList, EpisodeListItem } from "../../components/EpisodeList";
+import EpisodeList from "../../components/EpisodeList/EpisodeList.js";
+import EpisodeListItem from "../../components/EpisodeList/EpisodeListItem.js"
 import Jumbotron from "../../components/JumbotronEps";
 import PropTypes from 'prop-types';
 
@@ -31,7 +32,9 @@ class Episodes extends Component {
         this.setState({
           items: res.data.items,
           feed: res.data.feed
-        })).then(console.log(this.state)).catch(err => console.log(err));
+        }))
+        .then(res => console.log(res.data))
+        .catch(err => console.log(err));
   };
 
   // Create a function that will post the selected podcast to the db
@@ -64,12 +67,20 @@ class Episodes extends Component {
       <EpisodeList>
 
         {this.state.items.map(item => {
+
           return (
             <EpisodeListItem
               key={item.title}
+              collectionid = {this.props.location.state.collectionid}
+              collectionname = {this.props.location.state.collectionname}
               title={item.title}
-              thumbnail={item.image}
+              // showid = {item.episode._text}
+              thumbnail={this.props.location.state.artworkurl30}
               audio={item.enclosure.link}
+              host = {this.props.location.state.artistname}
+              genre = {this.props.location.state.genre}
+              releasedate = {item.pubDate}
+              views = {item.views}
             />
           )
         })}
