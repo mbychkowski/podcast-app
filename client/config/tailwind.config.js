@@ -120,10 +120,10 @@ let colors = {
   'purple-lighter': '#d6bbfc',
   'purple-lightest': '#f3ebff',
 
-  'pink-darkest': '#451225',
-  'pink-darker': '#6f213f',
+  'pink-darkest': '#400020',
+  'pink-darker': '#7f0040',
   'pink-dark': '#eb5286',
-  'pink': '#f66d9b',
+  'pink': '#ff0080',
   'pink-light': '#fa7ea8',
   'pink-lighter': '#ffbbca',
   'pink-lightest': '#ffebef',
