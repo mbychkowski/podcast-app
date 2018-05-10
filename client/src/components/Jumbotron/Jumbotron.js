@@ -11,7 +11,10 @@ class Jumbotron extends Component {
 
     return(
         <div className="jumbotron bg-no-repeat flex content-center justify-center">
-          <Searchbar  />
+
+          <Searchbar
+           />
+
         </div>
     )
   }

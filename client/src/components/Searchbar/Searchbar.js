@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "./Searchbar.css"
 import API from "../../utils/API.js"
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 class Searchbar extends Component {
 
@@ -19,21 +19,29 @@ class Searchbar extends Component {
     })
   }
 
+  // Handle Return/Enter Key press
+  returnKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      this.context.router.push({
+        pathname: '/search',
+        state: { itunesQuery: this.state.search }
+       })
+    }
+  }
+
   //Search the iTunes Affiliate API
-  searchItunes = query => {
-    API.searchItunes(query)
-      .then(res => {
-        this.props.saveResults(res)
-        console.log(res)
-      })
-      .catch(error => console.log(error))
-  }
+  // searchItunes = query => {
+  //   API.searchItunes(query)
+  //     .then(res => {
+  //       this.props.saveResults(res)
+  //       console.log(res)
+  //     })
+  //     .catch(error => console.log(error))
+  // }
 
-  handlePodcastSearch = event => {
-
-
-console.log("hello");
-  }
+  // handlePodcastSearch = event => {
+  //
+  // }
 
 
 
@@ -57,7 +65,8 @@ console.log("hello");
                 <button
                   className="flex-no-shrink bg-teal hover:bg-teal-dark border-teal hover:border-teal-dark text-sm border-4 text-white py-1 px-2 rounded"
                   type="button"
-                  onClick = {this.props.handlePodcastSearch}
+                  onSubmit = {this.returnKeyPress}
+                  // onKeyPress = {}
                   >
                 Search
                 </button>
