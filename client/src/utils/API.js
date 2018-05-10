@@ -50,5 +50,9 @@ export default {
   //get the op podcasts from the database
   getTopTenEpisodes: function(){
     return axios.get("/api/podcastEpisode/topTen")
+  },
+  // Add a subscription to a user
+  addSubscription: function(subscriptionData){
+    return axios.post("/api/subscriptions", subscriptionData)
   }
 }
