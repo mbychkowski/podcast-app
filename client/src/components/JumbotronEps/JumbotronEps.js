@@ -10,8 +10,15 @@ class JumbotronEps extends Component{
 
   //Allow a user to subscribe to a podcast
   subscribe = () => {
+
+    var local = window.localStorage["okta-token-storage"]
+    var localNre = JSON.parse(local)
+    var email = localNre.idToken.claims.email
+
     const podcast = {
+      user: email,
       collectionId: this.props.selectedPodcast.collectionid,
+      collectionName: this.props.selectedPodcast.collectionname,
       artistId: this.props.selectedPodcast.artistid,
       artistName: this.props.selectedPodcast.artistname,
       artworkUrl100:this.props.selectedPodcast.artworkurl100,
@@ -22,9 +29,6 @@ class JumbotronEps extends Component{
     console.log('subscribe', podcast);
   }
 
-  componentDidMount(){
-    console.log(this.props.selectedPodcast);
-  }
 
   render(){
     return (
