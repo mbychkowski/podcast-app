@@ -1,32 +1,38 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const podcastEpisodeSchema = new Schema({
-  show: {
+const podcastEpisodeSchema = new Schema(
+  {
+  showTitle: {
     type: String,
-    required: true
   },
-  host: {
-    type: String,
-    required: true
+  collectionid: {
+    type: String
+  },
+  audioUrl: {
+    type: String
+  },
+  showHost: {
+    type: String
+  },
+  showId: {
+    type: String
   },
   genre: {
+    type: Array
+  },
+  episodeTitle: {
     type: String
   },
-  synopsis: {
+  episodeThumbnail: {
     type: String
   },
-  thumbnail: {
-    type: String
-  },
-  lastRealease: {
+  releaseDate: {
     type: Date
   },
-  feedUrl: {
-    type: String
-  },
   views: {
-    type: Number
+    type: Number,
+    default: 1
   }
 });
 

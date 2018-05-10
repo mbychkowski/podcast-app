@@ -28,11 +28,11 @@ export default {
   },
   // Saves a user to the database
   saveUser: function(userData) {
-    return axios.post("/api/users", userData);
+    return axios.post("/api/users/db", userData);
   },
 
   //Get a list of all the top ten podcasts
-  getTopTen: function(){
+  getTopTenShows: function(){
     return axios.get("/api/podcastShow/topTen");
   },
   //Get s list of all saved podcasts
@@ -42,6 +42,13 @@ export default {
   //Add a podcast to the db
   addPodcast: function(podcastData){
     return axios.post("/api/podcastShow", podcastData)
+  },
+  //Add a podcast episode to the db
+  addEpisode: function(episodeData){
+    return axios.post("/api/podcastEpisode", episodeData)
+  },
+  //get the op podcasts from the database
+  getTopTenEpisodes: function(){
+    return axios.get("/api/podcastEpisode/topTen")
   }
-
 }
