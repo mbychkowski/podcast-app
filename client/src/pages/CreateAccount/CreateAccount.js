@@ -50,19 +50,20 @@ export default withAuth(class CreateAccount extends React.Component{
     this.setState({ password: e.target.value });
   }
 
-  addUser = () => {
-    const userData = {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      email: this.state.email
-    }
-    API.saveUser(userData);
-  }
+  // addUser = () => {
+  //   const userData = {
+  //     firstName: this.state.firstName,
+  //     lastName: this.state.lastName,
+  //     email: this.state.email,
+  //     _id: this.state.sub
+  //   }
+  //   API.saveUser(userData);
+  // }
 
   handleSubmit(e){
     e.preventDefault();
 
-    this.addUser();
+    // this.addUser();
 
     fetch('/api/users', {
       method: 'POST',
@@ -80,6 +81,16 @@ export default withAuth(class CreateAccount extends React.Component{
         this.setState({
         sessionToken: res.sessionToken
       })
+      console.log(res.user.id);
+
+      const userData = {
+        firstName: res.user.profile.firstName,
+        lastName: res.user.profile.lastName,
+        email: res.user.profile.login,
+        _id: res.user.id
+      }
+      API.saveUser(userData);
+
     });
     })
     .catch(err => console.log(err));
