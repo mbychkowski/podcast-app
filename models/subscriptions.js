@@ -32,8 +32,7 @@ const subscriptionsSchema = new Schema(
   mostRecentRelease: {
     type: Date
   },
-});
-
+})
 const Subscription = mongoose.model('Subscription', subscriptionsSchema);
 
 module.exports = Subscription;

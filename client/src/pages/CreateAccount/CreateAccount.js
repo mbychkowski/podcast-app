@@ -88,7 +88,22 @@ export default withAuth(class CreateAccount extends React.Component{
   render(){
     if (this.state.sessionToken) {
       this.props.auth.redirect({ sessionToken: this.state.sessionToken });
-      return null;
+      var local = window.localStorage["okta-token-storage"]
+      var localParsed = JSON.parse(local)
+      var email = localParsed.idToken.claims.idp
+
+      const podcast = {
+        userEmail: email,
+        collectionid: this.props.selectedPodcast.collectionid,
+        collectionName: this.props.selectedPodcast.collectionname,
+        artistId: this.props.selectedPodcast.artistid,
+        artistName: this.props.selectedPodcast.artistname,
+        artworkUrl100:this.props.selectedPodcast.artworkurl100,
+        feedUrl: this.props.selectedPodcast.feedUrl,
+        mostRecentRelease: this.props.selectedPodcast.mostrecentrelease
+      }
+
+      console.log('subscribe', podcast);
     }
 
     return (
