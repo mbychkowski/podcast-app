@@ -15,6 +15,7 @@ const Searchbar = props =>  {
               placeholder="Find a podcast"
               aria-label="Full name"
               onChange={props.handleInputChange}
+              onKeyPress={props.returnKeyPress}
               value = {props.search}
               />
             <button
