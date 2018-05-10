@@ -11,11 +11,11 @@ module.exports = {
           .findOneAndUpdate(
             //Match the selected id with the id of the user field to make sure the person exists
             {
-            _id: req.body.user
+            email: req.body.userEmail
             },
             {
               $push: {
-                  subscriptions: dbSubscription.collectionName
+                  subscriptions: dbSubscription.collectionId
               }
             },
             {new: true}
@@ -25,10 +25,10 @@ module.exports = {
         res.json(dbUser)
       })
       .catch(err =>{
-        res.json(error)
+        res.json(err)
       })
 
-    // The rest needs to be filled in
+
   }
 
 }

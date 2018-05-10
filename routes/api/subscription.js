@@ -4,5 +4,6 @@ const subscriptionController = require("../../controllers/subscriptionController
 //Post a subscription to the db
 router.route("/")
   .post(subscriptionController.subscriptionsByUser)
+  
 
 module.exports = router

@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import "./JumbotronEps.css"
+import "./JumbotronEps.css";
+import API from "../../utils/API.js";
 
 class JumbotronEps extends Component{
 
@@ -16,8 +17,8 @@ class JumbotronEps extends Component{
     var email = localNre.idToken.claims.email
 
     const podcast = {
-      user: email,
-      collectionId: this.props.selectedPodcast.collectionid,
+      userEmail: email,
+      collectionid: this.props.selectedPodcast.collectionid,
       collectionName: this.props.selectedPodcast.collectionname,
       artistId: this.props.selectedPodcast.artistid,
       artistName: this.props.selectedPodcast.artistname,
@@ -27,6 +28,7 @@ class JumbotronEps extends Component{
     }
 
     console.log('subscribe', podcast);
+    API.addSubscription(podcast)
   }
 
 

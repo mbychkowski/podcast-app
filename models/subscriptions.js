@@ -4,16 +4,18 @@ const Schema = mongoose.Schema;
 const subscriptionsSchema = new Schema(
 
   {
-  _id: Schema.Types.ObjectId,
-  userID: [{
+  userId: [{
     type: Schema.Types.ObjectId,
     ref: 'User'
   }],
-  collectionid: {
+  userEmail: {
     type: String
   },
+  collectionid: {
+    type: Number
+  },
   artistId: {
-    type: String
+    type: Number
   },
   collectionName: {
       type: String
@@ -25,7 +27,7 @@ const subscriptionsSchema = new Schema(
     type: String
   },
   feedUrl: {
-    type: Array
+    type: String
   },
   mostRecentRelease: {
     type: Date

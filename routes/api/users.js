@@ -33,5 +33,8 @@ router.post('/', (req, res, next) => {
 router.route("/db")
   .post(userController.createUser)
 
+//Find all subscriptions for a specific user
+router.route("/subscriptions")
+  .get(userController.findSubscriptions)
 
 module.exports = router;
