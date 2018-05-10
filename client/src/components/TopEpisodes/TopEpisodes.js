@@ -26,11 +26,11 @@ class TopEpisodes extends Component {
 
       //Map through each
 
-        <div className="mx-4 my-2 border-r border-b border-l border-t border-grey-light">
-          <div className="lg:border-l-0  lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex justify-between leading-normal">
+        <div className="max-w-md w-full border-t border-r">
+          <div className="border-r border-b border-l border-grey-light lg:border-l-0  lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
             <div className="mb-8">
 
-              <div className="text-black font-bold text-m mb-2">{this.props.title}</div>
+              <div className="text-black font-bold text-xl mb-2">{this.props.title}</div>
             </div>
 
             <div className="flex items-center">
