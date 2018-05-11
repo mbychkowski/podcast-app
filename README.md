@@ -6,6 +6,36 @@ Orator uses `iTunes API` to search for available podcasts. The rss feed for that
 
 Users can experience their personal favorite podcasts by creating account backed by `Okta` authentication. [Okta sends user id to database to ping subscribed podcasts].
 
+## Wireframes
+
+### Home Page
+<img src ="Wireframe_Images/Podcast-Wireframe.png" width="400">
+
+### Login Page
+<img src="Wireframe_Images/Podcast-Wireframe3.png" width="400">
+
+### Favorites
+<img src= "Wireframe_Images/Podcast-Wireframe4.png" width="400">
+
+### Subscribed
+<img src= "Wireframe_Images/Podcast-Wireframe5.png" width="400">
+
+## Built with
+* React
+* React-Router-Dom
+* Express
+* Axios
+* MongoDB
+* Mongoose
+* Okta
+* iTunes search API
+* rss2json
+
+## Built by
+Andrew Zoka
+Mathew Simon
+[https://github.com/mbychkowski](Michael Bychkowski)
+
 # Create React Express App (Developer Notes)
 
 ## About This Boilerplate
@@ -32,21 +62,6 @@ yarn start
 ```
 
 That's it, your app should be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
-## Wireframes
-
-### Home Page
-<img src ="Wireframe_Images/Podcast-Wireframe.png" width="400">
-
-### Login Page
-<img src="Wireframe_Images/Podcast-Wireframe3.png" width="400">
-
-### Favorites
-<img src= "Wireframe_Images/Podcast-Wireframe4.png" width="400">
-
-### Subscribed
-<img src= "Wireframe_Images/Podcast-Wireframe5.png" width="400">
-
 
 ## Deployment (Heroku)
 
