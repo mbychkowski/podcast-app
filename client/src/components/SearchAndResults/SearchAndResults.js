@@ -58,7 +58,7 @@ class SearchAndResults extends Component {
                 <div className="flex flex-wrap">
 
                   {/* Make each div responsive to a screen size */}
-                    <div class=" w-full overflow-x-scroll ...">
+                    <div className=" w-full overflow-x-scroll ...">
                       <TopPodcasts searchTopTenShows={this.state.topTenShows}/>
 
                     {/* Display the top podcast episodes */}

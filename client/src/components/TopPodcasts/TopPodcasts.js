@@ -38,7 +38,7 @@ class TopPodcasts extends Component {
 
               // Remove the styling from the text for a URL
               style={{ textDecoration: 'none' }}>
-              <div class="w-full lg:flex">
+              <div className="w-full lg:flex">
 
                 <div className="lg:border-l-0  lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
 

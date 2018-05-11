@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "./Searchbar.css"
 import API from "../../utils/API.js"
-import { Link, Redirect } from 'react-router-dom'
+import { Route, Link, Redirect } from 'react-router-dom'
 
 class Searchbar extends Component {
 
@@ -29,22 +29,6 @@ class Searchbar extends Component {
     }
   }
 
-  //Search the iTunes Affiliate API
-  // searchItunes = query => {
-  //   API.searchItunes(query)
-  //     .then(res => {
-  //       this.props.saveResults(res)
-  //       console.log(res)
-  //     })
-  //     .catch(error => console.log(error))
-  // }
-
-  // handlePodcastSearch = event => {
-  //
-  // }
-
-
-
   render(){
     return(
         <form className="w-1/2 self-center searchBar">
@@ -56,17 +40,17 @@ class Searchbar extends Component {
                   placeholder="Search for a Podcast"
                   aria-label="Full name"
                   onChange={this.handleInputChange}
+                  onKeyPress={this.handleInputChange}
                   value = {this.state.search}
                  />
                  <Link to={{
                  pathname: '/search',
                  state: { itunesQuery: this.state.search }
                }}>
+
                 <button
                   className="flex-no-shrink bg-teal hover:bg-teal-dark border-teal hover:border-teal-dark text-sm border-4 text-white py-1 px-2 rounded"
-                  type="button"
-                  // onSubmit = {this.returnKeyPress}
-                  // onKeyPress = {}
+                  type="submit"
                   >
                 Search
                 </button>
