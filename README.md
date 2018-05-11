@@ -32,9 +32,9 @@ Users can experience their personal favorite podcasts by creating account backed
 * rss2json
 
 ## Built by
-Andrew Zoka
-Mathew Simon
-[https://github.com/mbychkowski](Michael Bychkowski)
+* Andrew Zoka
+* Mathew Simon
+* [https://github.com/mbychkowski](Michael Bychkowski)
 
 # Create React Express App (Developer Notes)
 
