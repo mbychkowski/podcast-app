@@ -1,6 +1,7 @@
 import React from 'react';
 import OktaAuth from '@okta/okta-auth-js';
 import { withAuth } from '@okta/okta-react';
+import API from "../../utils/API.js"
 
 import "./CreateAccount.css"
 
@@ -68,6 +69,15 @@ export default withAuth(class CreateAccount extends React.Component{
         this.setState({
         sessionToken: res.sessionToken
       })
+
+      const userData = {
+        firstName: res.user.profile.firstName,
+        lastName: res.user.profile.lastName,
+        email: res.user.profile.login,
+        _id: res.user.id
+      }
+      API.saveUser(userData);
+
     });
     })
     .catch(err => console.log(err));
