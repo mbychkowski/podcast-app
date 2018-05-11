@@ -34,17 +34,19 @@ Users can experience their personal favorite podcasts by creating account backed
 ## Built by
 * Andrew Zoka
 * Mathew Simon
-* [https://github.com/mbychkowski](Michael Bychkowski)
+* [Michael Bychkowski](https://github.com/mbychkowski)
 
-# Create React Express App (Developer Notes)
+# Developer Notes
 
-## About This Boilerplate
+## Create React Express App 
+
+### About This Boilerplate
 
 This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
 
 The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
 
-## Starting the app locally
+### Starting the app locally
 
 Start by installing front and backend dependencies. While in this directory, run the following commands:
 
@@ -76,6 +78,18 @@ yarn build
 
 2. Add and commit all changes to git
 
-3. Push to Heroku
+3. Set `.env` configurations
+
+```
+heroku config:set REACT_APP_MEMBERSHIP_TOKEN
+heroku config:set REACT_APP_ORG_URL
+heroku config:set REACT_APP_CLIENT_ID
+heroku config:set REACT_APP_ISSUER
+heroku config:set REACT_APP_REDIRECT_URI
+heroku config:set REACT_APP_ORG_SCOPE
+heroku config:set REACT_APP_ORG_URL=
+```
+
+4. Push to Heroku
 
 If all previous steps were followed correctly, your application should be deployed to Heroku!
