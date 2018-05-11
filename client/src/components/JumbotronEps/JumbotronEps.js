@@ -14,11 +14,11 @@ class JumbotronEps extends Component{
 
     var local = window.localStorage["okta-token-storage"]
     var localNre = JSON.parse(local)
-    var email = localNre.idToken.claims.email
+    var userId = localNre.idToken.claims.sub
 
     const podcast = {
-      userEmail: email,
-      collectionid: this.props.selectedPodcast.collectionid,
+      _id: userId,
+      collectionId: this.props.selectedPodcast.collectionid,
       collectionName: this.props.selectedPodcast.collectionname,
       artistId: this.props.selectedPodcast.artistid,
       artistName: this.props.selectedPodcast.artistname,
@@ -28,7 +28,8 @@ class JumbotronEps extends Component{
     }
 
     console.log('subscribe', podcast);
-    API.addSubscription(podcast)
+    API.addSubscription(podcast);
+    API.addUserToSubscription(podcast);
   }
 
 

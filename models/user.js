@@ -14,22 +14,14 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  subscriptions: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Subscription'
-  }]
-},
-{ toJSON: { virtuals: true } })
-
-userSchema.virtual('subscribed', {
-  ref: 'Subscription', // The model to use
-  localField: 'email', // Find people where `localField`
-  foreignField: 'userEmail', // is equal to `foreignField`
-  // If `justOne` is true, 'members' will be a single doc as opposed to
-  // an array. `justOne` is false by default.
-  justOne: false
+  _id: {
+    type: String,
+    required: true
+  },
+  subscriptions: {
+    type: Array
+  }
 });
-
 
 const User = mongoose.model('User', userSchema);
 

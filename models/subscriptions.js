@@ -8,9 +8,6 @@ const subscriptionsSchema = new Schema(
     type: Schema.Types.ObjectId,
     ref: 'User'
   }],
-  userEmail: {
-    type: String
-  },
   collectionid: {
     type: Number
   },

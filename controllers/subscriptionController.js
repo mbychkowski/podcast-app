@@ -2,33 +2,32 @@ const db = require("../models")
 
 module.exports = {
 
-  //Find subscriptions by a specific user
+  //create a subscription
   subscriptionsByUser: function(req,res){
     db.Subscription
       .create(req.body)
-      .then(dbSubscription => {
-        return db.User
+      .then(dbModel =>
+        //Go and find the user who posted this and update the user
+        db.User
           .findOneAndUpdate(
-            //Match the selected id with the id of the user field to make sure the person exists
+            //Match to the id of the user who is logged in
+            {_id: dbModel.collectionId},
+            // Push the subscription to the user's subscription array
+            { $push: {subscriptions: dbModel}},
+            // Do not allow new entries if it doesnt exist
             {
-            email: req.body.userEmail
+              upsert: false,
+              new: false
             },
-            {
-              $push: {
-                  subscriptions: dbSubscription.collectionId
+            // Callback
+            function(error, res){
+              if (error){
+                console.log(error)
+              } else {
+                console.log(res)
               }
-            },
-            {new: true}
+            }
           )
-      })
-      .then(dbUser => {
-        res.json(dbUser)
-      })
-      .catch(err =>{
-        res.json(err)
-      })
-
-
+      )
+    }
   }
-
-}

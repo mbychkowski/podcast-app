@@ -35,6 +35,9 @@ const PodcastShowSchema = new Schema({
   views: {
     type: Number,
     default: 1
+  },
+  subscriptions : {
+    type: Array
   }
 })
 
