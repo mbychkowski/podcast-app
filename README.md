@@ -78,6 +78,8 @@ yarn build
 
 2. Add and commit all changes to git
 
+3. Delete `package-lock.json` files and `node_modules`
+
 3. Set `.env` configurations
 
 ```
