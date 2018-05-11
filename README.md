@@ -30,6 +30,7 @@ Users can experience their personal favorite podcasts by creating account backed
 * Okta
 * iTunes search API
 * rss2json
+* TailwindCSS
 
 ## Built by
 * Andrew Zoka
