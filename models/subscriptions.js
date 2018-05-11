@@ -1,35 +1,30 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+// const mongoose = require('mongoose');
+// const Schema = mongoose.Schema;
 
-const subscriptionsSchema = new Schema(
-
+const Subscription = sequelize.define( 'subscription',
   {
-  userId: [{
-    type: Schema.Types.ObjectId,
-    ref: 'User'
-  }],
   collectionid: {
-    type: Number
+    type: Sequelize.STRING
   },
   artistId: {
-    type: Number
+    type: Sequelize.STRING
   },
   collectionName: {
-      type: String
+    type: Sequelize.STRING
   },
   artistName: {
-    type: String
+    type: Sequelize.STRING
   },
   artworkUrl100: {
-    type: String
+    type: Sequelize.STRING
   },
   feedUrl: {
-    type: String
+    type: Sequelize.ARRAY
   },
   mostRecentRelease: {
-    type: Date
+    type: Sequelize.DATE
   },
 })
-const Subscription = mongoose.model('Subscription', subscriptionsSchema);
+
 
 module.exports = Subscription;

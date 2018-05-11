@@ -1,46 +1,42 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+// const mongoose = require('mongoose');
+// const Schema = mongoose.Schema;
 
-const PodcastShowSchema = new Schema({
+const PodcastShow = sequelize.define( 'podcastShow', {
   artistId: {
-    type: Number
+    type: Sequelize.STRING
   },
   collectionId: {
-    type: Number
+    type: Sequelize.STRING
   },
   artistName: {
-    type: String
+    type: Sequelize.STRING
   },
   collectionName: {
-    type: String
+    type: Sequelize.STRING
   },
   feedUrl: {
-    type: String
+    type: Sequelize.STRING
   },
   artworkUrl30: {
-    type: String
+    type: Sequelize.STRING
   },
   artworkUrl60: {
-    type: String
+    type: Sequelize.STRING
   },
   artworkUrl100: {
-    type: String
+    type: Sequelize.STRING
   },
   mostRecentRelease: {
-    type: String
+    type: Sequelize.DATE 
   },
   genre: {
-    type: Array
+    type: Sequelize.ARRAY
   },
   views: {
-    type: Number,
-    default: 1
-  },
-  subscriptions : {
-    type: Array
+    type: Sequelize.INTEGER
+    defaultValue: 1
   }
 })
 
-const PodcastShow = mongoose.model("PodcastShow", PodcastShowSchema )
 
 module.exports = PodcastShow;

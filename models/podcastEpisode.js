@@ -1,41 +1,41 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+// const mongoose = require('mongoose');
+// const Schema = mongoose.Schema;
 
-const podcastEpisodeSchema = new Schema(
+const PodcastEpisode = sequelize.define( 'podcastEpisode',
   {
   showTitle: {
-    type: String,
+    type: Sequelize.STRING,
   },
   collectionid: {
-    type: String
+    type: Sequelize.STRING
   },
   audioUrl: {
-    type: String
+    type: Sequelize.STRING
   },
   showHost: {
-    type: String
+    type: Sequelize.STRING
   },
   showId: {
-    type: String
+    type: Sequelize.STRING
   },
   genre: {
-    type: Array
+    type: Sequelize.ARRAY
   },
   episodeTitle: {
-    type: String
+    type: Sequelize.STRING
   },
   episodeThumbnail: {
-    type: String
+    type: Sequelize.STRING
   },
   releaseDate: {
-    type: Date
+    type: Sequelize.DATE
   },
   views: {
-    type: Number,
-    default: 1
+    type: Sequelize.INTEGER ,
+    defaultValue: 1
   }
 });
 
-const PodcastEpisode = mongoose.model('PodcastEpisode', podcastEpisodeSchema);
+// const PodcastEpisode = mongoose.model('PodcastEpisode', podcastEpisodeSchema);
 
 module.exports = PodcastEpisode;
