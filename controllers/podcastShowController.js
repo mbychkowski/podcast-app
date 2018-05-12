@@ -70,7 +70,7 @@ module.exports = {
         // Where the collectionId matches the submitted podcast
         {collectionId: req.body.collectionId},
         // Pusht the user id of the person who has subscribed to the podcast
-        { $push: {subscriptions: req.body._id}}
+        { $push: {subscriptions: req.body.userId}}
     )
     .then(dbModel => res.json(dbModel))
     .catch(err => res.json(err))

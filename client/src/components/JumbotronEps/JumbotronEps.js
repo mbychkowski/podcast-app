@@ -29,7 +29,7 @@ class JumbotronEps extends Component{
 
     console.log('subscribe', podcast);
     API.addSubscription(podcast);
-    // API.addUserToSubscription(podcast);
+    API.addUserToSubscription(podcast);
   }
 
 
