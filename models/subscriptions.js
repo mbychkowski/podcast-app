@@ -26,5 +26,10 @@ const Subscription = sequelize.define( 'subscription',
   },
 })
 
+//Associate Subscriptions to Users
+  Subscription.associate = (models)=> {
+    Subscription.belongsTo(models.User);
+  };
+
 
 module.exports = Subscription;

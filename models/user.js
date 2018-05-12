@@ -21,4 +21,10 @@ const User =sequelize.define('user', {
   }
 });
 
+User.associate = (models) => {
+    User.hasMany(models.Subscription, {
+      onDelete: "cascade"
+    });
+  };
+
 module.exports = User;
