@@ -14,7 +14,7 @@ export default class Login extends Component {
        */
       baseUrl: process.env.REACT_APP_ISSUER.split('/oauth2')[0],
       clientId: process.env.REACT_APP_CLIENT_ID,
-      redirectUri: "{{redirectUri configured in OIDC app}}",
+      redirectUri: process.env.REACT_APP_REDIRECT_URI,
       logo: '/logo.svg',
       i18n: {
         en: {
