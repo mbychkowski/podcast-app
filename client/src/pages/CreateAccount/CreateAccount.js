@@ -68,7 +68,7 @@ export default withAuth(class CreateAccount extends React.Component{
       .then(res => {
         this.setState({
         sessionToken: res.sessionToken
-      })
+        })
 
       const userData = {
         firstName: res.user.profile.firstName,
@@ -78,7 +78,7 @@ export default withAuth(class CreateAccount extends React.Component{
       }
       API.saveUser(userData);
 
-    });
+      });
     })
     .catch(err => console.log(err));
   }

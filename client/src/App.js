@@ -16,6 +16,7 @@ function onAuthRequired({history}) {
 }
 
 class App extends Component{
+
   render() {
     return (
       <Router>
@@ -29,7 +30,7 @@ class App extends Component{
           <Route path = "/login" render={() => <Login baseUrl = {process.env.REACT_APP_ISSUER.split("/oauth2")[0]} />} />
           <Route path = "/account" component = {CreateAccount} />
           <Route path = "/podcast/:id" component = {Episodes} />
-          <SecureRoute path= "/profile" component = {Profile} />
+          <SecureRoute path= "/profile/:id" component = {Profile} />
         </Security>
       </Router>
     )

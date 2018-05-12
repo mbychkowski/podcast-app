@@ -1,44 +1,55 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withAuth } from '@okta/okta-react';
-import { Header, Icon, Table } from 'semantic-ui-react';
-import { checkAuthentication } from "../../helpers/helpers";
+import PodcastCard from "../../components/PodcastCard";
+import API from "../../utils/API";
 
-export default withAuth(class Profile extends Component {
-  constructor(props) {
+export default withAuth(class ProfilePage extends React.Component {
+  constructor(props){
     super(props);
-    this.state = { userinfo: null, ready: false };
-    this.checkAuthentication = checkAuthentication.bind(this);
+    this.state = {
+      user: null, // for Okta
+      subscriptions: []
+    };
+    this.getCurrentUser = this.getCurrentUser.bind(this);
   }
 
-  async componentDidMount() {
-    await this.checkAuthentication();
-    this.applyClaims();
+  async getCurrentUser(){
+    this.props.auth.getUser()
+      .then(user => this.setState({user}));
   }
 
-  async componentDidUpdate() {
-    await this.checkAuthentication();
-    this.applyClaims();
+  componentDidMount(){
+    this.getCurrentUser();
+    this.getSubscription(this.props.match.params.id);
   }
 
-  async applyClaims() {
-    if (this.state.userinfo && !this.state.claims) {
-      const claims = Object.entries(this.state.userinfo);
-      this.setState({ claims, ready: true });
-    }
+  getSubscription = (userId) => {
+    API.getSubscription(userId)
+      .then(res =>
+      this.setState({
+        subscriptions: res.data
+      })
+    )
   }
 
   render() {
+    if(!this.state.user) return null;
     return (
       <div>
-        <div className="text-black">
-          <h1>PROTECTED PAGE</h1>
-          <h1>PROTECTED PAGE</h1>
-          <h1>PROTECTED PAGE</h1>
-          <h1>PROTECTED PAGE</h1>
-          <h1>PROTECTED PAGE</h1>
-          <h1>PROTECTED PAGE</h1>
+        <section className="user-profile">
+          <h1>User Profile</h1>
+          <div>
+            <label>Name:</label>
+            <span>{this.state.user.name}</span>
+          </div>
+        </section>
+        <div>
+          <PodcastCard
+            results={this.state.subscriptions}
+          />
         </div>
       </div>
+
     )
   }
 });
