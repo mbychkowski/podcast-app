@@ -61,6 +61,18 @@ module.exports = {
           .catch(dbModel => res.json(dbModel))
       }
     })
+  },
 
+  // Add a subscription to a podcast
+  addSubscription: function(req,res){
+    db.PodcastShow
+      .findOneAndUpdate(
+        // Where the collectionId matches the submitted podcast
+        {collectionId: req.body.collectionId},
+        // Pusht the user id of the person who has subscribed to the podcast
+        { $push: {subscriptions: req.body.userId}}
+    )
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.json(err))
   }
 }
