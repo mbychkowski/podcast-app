@@ -34,7 +34,7 @@ router.route("/db")
   .post(userController.createUser)
 
 //Find all subscriptions for a specific user
-router.route("/subscriptions")
+router.route("/subscriptions/:id")
   .get(userController.findSubscriptions)
 
 module.exports = router;

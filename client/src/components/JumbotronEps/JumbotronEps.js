@@ -22,16 +22,15 @@ class JumbotronEps extends Component{
       collectionName: this.props.selectedPodcast.collectionname,
       artistId: this.props.selectedPodcast.artistid,
       artistName: this.props.selectedPodcast.artistname,
-      artworkUrl100:this.props.selectedPodcast.artworkurl100,
+      artworkUrl600:this.props.image,
       feedUrl: this.props.selectedPodcast.feedUrl,
-      mostRecentRelease: this.props.selectedPodcast.mostrecentrelease
+      mostRecentRelease: this.props.selectedPodcast.mostrecentrelease,
+      genres: this.props.selectedPodcast.genre
     }
 
-    console.log('subscribe', podcast);
     API.addSubscription(podcast);
     API.addUserToSubscription(podcast);
   }
-
 
   render(){
     return (

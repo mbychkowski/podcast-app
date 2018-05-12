@@ -19,7 +19,7 @@ const subscriptionsSchema = new Schema(
   artistName: {
     type: String
   },
-  artworkUrl100: {
+  artworkUrl600: {
     type: String
   },
   feedUrl: {
@@ -28,6 +28,9 @@ const subscriptionsSchema = new Schema(
   mostRecentRelease: {
     type: Date
   },
+  genres: {
+    type: Array
+  }
 })
 const Subscription = mongoose.model('Subscription', subscriptionsSchema);
 
