@@ -9,25 +9,20 @@ module.exports = {
       .then(dbModel =>
         //Go and find the user who posted this and update the user
         db.User
-          .findOneAndUpdate(
+          .findOne(
             //Match to the id of the user who is logged in
-            {_id: dbModel.collectionId},
-            // Push the subscription to the user's subscription array
-            { $push: {subscriptions: dbModel}},
-            // Do not allow new entries if it doesnt exist
-            {
-              upsert: false,
-              new: false
-            },
-            // Callback
-            function(error, res){
-              if (error){
-                console.log(error)
-              } else {
-                console.log(res)
-              }
-            }
+            {_id: dbModel.userId[0]}
+
           )
+          .then(dbUser =>
+            db.User
+              .update(
+                { _id: dbUser.id },
+                { $push: { subscriptions: dbModel }}
+              )
+            .then(dbResult => res.json(dbResult))
+            .catch(err => res.json(err))
       )
-    }
+      .catch(err => res.json(err))
+    )}
   }

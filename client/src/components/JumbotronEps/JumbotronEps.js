@@ -17,7 +17,7 @@ class JumbotronEps extends Component{
     var userId = localNre.idToken.claims.sub
 
     const podcast = {
-      _id: userId,
+      userId: userId,
       collectionId: this.props.selectedPodcast.collectionid,
       collectionName: this.props.selectedPodcast.collectionname,
       artistId: this.props.selectedPodcast.artistid,

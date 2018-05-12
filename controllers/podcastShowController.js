@@ -61,7 +61,7 @@ module.exports = {
           .catch(dbModel => res.json(dbModel))
       }
     })
-  }
+  },
 
   // Add a subscription to a podcast
   addSubscription: function(req,res){
@@ -83,6 +83,5 @@ module.exports = {
           console.log(res)
         }
       })
-      )
   }
 }
