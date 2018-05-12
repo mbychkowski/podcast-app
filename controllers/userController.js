@@ -41,14 +41,13 @@ module.exports = {
   // Find all subscriptions for a specific user
   findSubscriptions: function(req,res){
     db.User
-    .find({email: req.body.user})
-    .populate("subscriptions")
-    .then(dbUser => {
-      res.json(dbUser)
-    })
-    .catch(error => {
-      res.json(error)
-    })
-  }
+      .find({_id: req.params.id})
+      .then(dbUser => {
+        res.json(dbUser[0].subscriptions)
+      })
+      .catch(error => {
+        res.json(error)
+      })
+    }
 
 }

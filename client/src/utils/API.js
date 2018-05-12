@@ -34,7 +34,7 @@ export default {
   getTopTenShows: function(){
     return axios.get("/api/podcastShow/topTen");
   },
-  //Get s list of all saved podcasts
+  //Gets list of all saved podcasts
   getPodcasts: function(){
     return axios.get("/api/podcastShow")
   },
@@ -53,6 +53,9 @@ export default {
   // Add a subscription to a user
   addSubscription: function(subscriptionData){
     return axios.post("/api/subscriptions", subscriptionData)
+  },
+  getSubscription: function(userId){
+    return axios.get("/api/users/subscriptions/" +  userId)
   },
   // Push a user to a podcast
   addUserToSubscription: function(userData){
