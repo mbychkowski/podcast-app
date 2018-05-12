@@ -3,29 +3,33 @@ import "./Searchbar.css"
 
 const Searchbar = props =>  {
 
-        return(
-            <form className="w-1/2 self-center searchBar">
-                <div className="flex items-center border-b border-b-2 border-teal py-2">
-                    <input
-                      className="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2"
-                      type="text"
-                      name="search"
-                      placeholder="Search for a Podcast"
-                      aria-label="Full name"
-                      onChange={props.handleInputChange}
-                      onKeyPress={props.returnKeyPress}
-                      value = {props.search}
-                     />
-                    <button
-                      className="flex-no-shrink bg-teal hover:bg-teal-dark border-teal hover:border-teal-dark text-sm border-4 text-white py-1 px-2 rounded"
-                      type="button"
-                      onClick = {props.handlePodcastSearch}
-                      >
-                    Search
-                    </button>
-                </div>
-            </form>
-        )
-      }
+  return(
+    <div className="flex items-center w-full">
+      <div className="w-full md:max-w-lg md:mx-auto">
+        <form>
+          <div className="flex flex-row">
+            <input
+              className="flex-1 p-2 mr-2 search-field-style hover:border-pink"
+              type="text"
+              name="search"
+              placeholder="Find a podcast"
+              aria-label="Full name"
+              onChange={props.handleInputChange}
+              onKeyPress={props.returnKeyPress}
+              value = {props.search}
+              />
+            <button
+              className="p-3 search-button-style hover:bg-pink-darker"
+              type="button"
+              onClick = {props.handlePodcastSearch}
+              >
+              Search
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  )
+}
 
 export default Searchbar
