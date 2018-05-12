@@ -9,4 +9,8 @@ router.route("/")
 router.route("/topTen")
   .get(podcastShowController.topTenShows)
 
+//Push the user id of the person who subscribed
+router.route("/subscription")
+  .put(podcastShowController.addSubscription)
+
 module.exports = router
