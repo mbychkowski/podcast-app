@@ -63,7 +63,9 @@ class Episodes extends Component {
         author={this.state.feed.author}
         description={this.state.feed.description}
         image={this.state.feed.image}
+        selectedPodcast = {this.props.location.state}
       />
+
       <EpisodeList>
 
         {this.state.items.map(item => {
