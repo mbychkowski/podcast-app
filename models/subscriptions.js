@@ -7,7 +7,7 @@ const subscriptionsSchema = new Schema(
   userId: [{
     type: String,
   }],
-  collectionid: {
+  collectionId: {
     type: Number
   },
   artistId: {
