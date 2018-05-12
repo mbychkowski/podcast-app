@@ -33,7 +33,6 @@ class JumbotronEps extends Component{
     API.addUserToSubscription(podcast);
   }
 
-
   render(){
     return (
 

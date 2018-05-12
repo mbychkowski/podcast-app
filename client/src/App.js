@@ -16,6 +16,20 @@ function onAuthRequired({history}) {
 }
 
 class App extends Component{
+
+  state = {
+    userId: ""
+  }
+
+  componentDidMount() {
+    var local = window.localStorage["okta-token-storage"]
+       var localNre = JSON.parse(local)
+       var userId = localNre.idToken.claims.sub
+       this.setState({
+         userId: userId
+       });
+     }
+
   render() {
     return (
       <Router>
