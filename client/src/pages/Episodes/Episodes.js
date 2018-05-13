@@ -48,6 +48,7 @@ class Episodes extends Component {
       artworkUrl30 : this.props.location.state.artworkurl30,
       artworkUrl60 : this.props.location.state.artworkurl60,
       artworkUrl100 : this.props.location.state.artworkurl100,
+      artworkUrl600: this.props.location.state.artworkUrl600,
       mostRecentRelease : this.props.location.state.releasedate,
       genre : this.props.location.state.genre,
     }

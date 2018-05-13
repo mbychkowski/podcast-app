@@ -28,6 +28,7 @@ class PodcastCard extends Component {
                           feedurl : podcast.feedUrl,
                           artworkurl30 : podcast.artworkUrl30,
                           artworkurl60 : podcast.artworkUrl60,
+                          artworkUrl100 : podcast.artworkUrl100,
                           artworkUrl600 : podcast.artworkUrl600,
                           mostrecentrelease : podcast.releaseDate,
                           genre : podcast.genres

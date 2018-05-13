@@ -29,6 +29,7 @@ class TopPodcasts extends Component {
                     artworkurl30 : podcastShows.artworkUrl30,
                     artworkurl60 : podcastShows.artworkUrl60,
                     artworkurl100 : podcastShows.artworkUrl100,
+                    artworkurl600 : podcastShows.artworkUrl600,
                     mostrecentrelease : podcastShows.releaseDate,
                     genre : podcastShows.genres
                   }
@@ -36,22 +37,7 @@ class TopPodcasts extends Component {
 
             // Remove the styling from the text for a URL
             style={{ textDecoration: 'none' }}>
-            <div className="border-r border-b border-l border-grey-light lg:border-l-0  lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-
-              <div className="mb-8">
-
-                <div className="text-black font-bold text-xl mb-2">{podcastShows.collectionName}</div>
-              </div>
-
-              <div className="flex items-center">
-                <img className="w-10 h-10 rounded-full mr-4" src={podcastShows.artworkUrl30} alt="Avatar of Jonathan Reinink"/>
-                <div className="text-sm">
-                  <p className="text-black leading-none">{podcastShows.artistName}</p>
-                  <p className="text-grey-dark">Views: {podcastShows.views}</p>
-                </div>
-              </div>
-
-            </div>
+            <img className="rounded-full" src={podcastShows.artworkUrl600} />
           </Link>
         </div>
 
