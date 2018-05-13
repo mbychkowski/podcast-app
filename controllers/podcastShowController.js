@@ -19,7 +19,7 @@ module.exports = {
       .sort({views: -1})
 
       // Only display the first 10 which translates to the top ten in this case
-      .limit(10)
+      .limit(9)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.json(dbModel))
   },

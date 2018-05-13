@@ -58,7 +58,7 @@ class SearchAndResults extends Component {
                 <div className="flex flex-wrap">
 
                   {/* Make each div responsive to a screen size */}
-                  <div className="xl:w-1/5 lg:w-1/5 md:1/3 sm:w-1/2 flex flex-wrap group">
+                  <div className="xl:w-full lg:w-full md:w-full sm:w-full flex flex-wrap group">
                     <TopPodcasts className="w-full" searchTopTenShows={this.state.topTenShows}/>
 
                     {/* Display the top podcast episodes */}
@@ -84,13 +84,14 @@ class SearchAndResults extends Component {
 
                   })}
                   </div>
+                </div>
 
                   {/* Make each div responsive to a screen size */}
-                  <div className="xl:w-4/5 lg:w-4/5 md:2/3 sm:w-1/2 flex flex-wrap group">
+                  <div className="xl:w-full lg:w-full md:w-full sm:w-full flex flex-wrap group">
                     <PodcastList results={this.state.results}/>
                   </div>
 
-                </div>
+
             </div>
         )
     }
