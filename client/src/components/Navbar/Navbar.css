@@ -20,12 +20,14 @@ a:active {
     border-color: #FF0080;
 }
 
-a {
-  color: black;
-  font-size: 1.25em;
+.nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-.logo {
-  font-family: 'Cormorant Unicase', serif;
-  color: #FFC86D;
-  }
+.nav-list-item {
+  @apply .p-6 .text-2xl .text-grey-light .tracking-wide;
+}
+
+@tailwind utilities;

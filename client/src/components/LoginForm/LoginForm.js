@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import OktaAuth from '@okta/okta-auth-js';
 import { withAuth } from '@okta/okta-react';
 
-export default withAuth(class LoginForm extends Component {
+export default withAuth(class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       sessionToken: null,
+      error: null,
       username: '',
       password: ''
     }
@@ -24,43 +25,54 @@ export default withAuth(class LoginForm extends Component {
       username: this.state.username,
       password: this.state.password
     })
-    .then(res => this.setState({
-      sessionToken: res.sessionToken
-    }))
-    .catch(err => console.log('Found an error', err));
+      .then(res => this.setState({
+        sessionToken: res.sessionToken
+      }))
+      .catch(err => {
+        this.setState({error: err.message});
+        console.log(err.statusCode + ' error', err)
+      });
   }
 
   handleUsernameChange(e) {
-    this.setState({username: e.target.value});
+    this.setState({ username: e.target.value });
   }
 
   handlePasswordChange(e) {
-    this.setState({password: e.target.value});
+    this.setState({ password: e.target.value });
   }
 
   render() {
-    console.log(this.state.sessionToken);
     if (this.state.sessionToken) {
-      this.props.auth.redirect({sessionToken: this.state.sessionToken});
+      this.props.auth.redirect({ sessionToken: this.state.sessionToken });
       return null;
     }
 
+    const errorMessage = this.state.error ?
+	<span className="error-message">{this.state.error}</span> :
+	null;
+
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          Username:
+        {errorMessage}
+        <div className="form-element">
+          <label>Username:</label>
           <input
             id="username" type="text"
             value={this.state.username}
             onChange={this.handleUsernameChange} />
-          Password:
+        </div>
+
+        <div className="form-element">
+          <label>Password:</label>
           <input
             id="password" type="password"
             value={this.state.password}
             onChange={this.handlePasswordChange} />
-        </label>
+        </div>
         <input id="submit" type="submit" value="Submit" />
       </form>
     );
   }
 });
+yz
