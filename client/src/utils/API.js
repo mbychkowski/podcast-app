@@ -4,7 +4,7 @@ import axios from "axios"
 const BASESEARCH = "https://itunes.apple.com/search?media=podcast&term=";
 
 // Creating the base URL for searching rss2json
-const BASERSS = "https://api.rss2json.com/v1/api.json?rss_url=";
+const BASERSS = "https://api.rss2json.com/v1/api.json?api_key=y4nsxqvxxjmupu0rcbivwrhhpdrfyxerade8kqg9&rss_url=";
 
 export default {
 
