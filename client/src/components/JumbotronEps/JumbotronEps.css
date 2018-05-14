@@ -1,28 +1,35 @@
 .podcastHeading {
+  max-width: 250px;
   overflow: hidden;
   color: #000000;
-  text-shadow: 1px 1px 2px #808080;
+  text-shadow: 0.5px 0.5px 1px #FCE6C8;
+  padding: 15px;
+  background-color: #FFC86D;
 }
 
 .description{
   color: #000000;
   background-color: #FCE6C8;
   font-weight: lighter;
+  height: 150px;
+  opacity: 1;
+  float: right;
 }
 
 .author {
   color: #000000;
   text-shadow: 0.5px 0.5px 1px #FFC86D;
+  opacity: 1;
 
 }
 
 .main {
-  background-color: #FFC86D;
+
   max-height: 85%;
     margin-top: 10%;
     margin-left: 0;
     margin-right: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 3%;
 }
 
 .img {

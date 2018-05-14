@@ -3,7 +3,8 @@
 }
 
 .search-button-style {
-  @apply .rounded .bg-pink .text-white .uppercase;
+  @apply .rounded .text-white .uppercase;
+  background-color: #FFC86D
 }
 
 @tailwind utilities;

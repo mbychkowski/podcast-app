@@ -35,9 +35,9 @@ export default withAuth(class Navbar extends Component {
 
       <div>
         <Menu className="bg-black" fixed="top" inverted>
-          <Container>
+          <Container className="container">
             <Menu.Item as="a" header href="/">
-              <span className="logo text-4xl font-semibold text-xl tracking-normal">Octar</span>
+              <span className="logo text-4xl">Octar</span>
             </Menu.Item>
             {this.state.authenticated === true && <Menu.Item id="profile-button" as="a" href="/profile">Profile</Menu.Item>}
             {this.state.authenticated === true && <Menu.Item id="logout-button" as="a" onClick={this.logout}>Logout</Menu.Item>}
