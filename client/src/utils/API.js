@@ -30,12 +30,11 @@ export default {
   saveUser: function(userData) {
     return axios.post("/api/users/db", userData);
   },
-
   //Get a list of all the top ten podcasts
   getTopTenShows: function(){
     return axios.get("/api/podcastShow/topTen");
   },
-  //Get s list of all saved podcasts
+  //Gets list of all saved podcasts
   getPodcasts: function(){
     return axios.get("/api/podcastShow")
   },
@@ -50,5 +49,16 @@ export default {
   //get the op podcasts from the database
   getTopTenEpisodes: function(){
     return axios.get("/api/podcastEpisode/topTen")
+  },
+  // Add a subscription to a user
+  addSubscription: function(subscriptionData){
+    return axios.post("/api/subscriptions", subscriptionData)
+  },
+  getSubscription: function(userId){
+    return axios.get("/api/users/subscriptions/" +  userId)
+  },
+  // Push a user to a podcast
+  addUserToSubscription: function(userData){
+    return axios.put("/api/podcastShow/subscription", userData)
   }
 }

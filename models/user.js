@@ -17,6 +17,9 @@ const userSchema = new Schema({
   _id: {
     type: String,
     required: true
+  },
+  subscriptions: {
+    type: Array
   }
 });
 

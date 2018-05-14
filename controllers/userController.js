@@ -37,5 +37,17 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.json(err))
-  }
+  },
+  // Find all subscriptions for a specific user
+  findSubscriptions: function(req,res){
+    db.User
+      .find({_id: req.params.id})
+      .then(dbUser => {
+        res.json(dbUser[0].subscriptions)
+      })
+      .catch(error => {
+        res.json(error)
+      })
+    }
+
 }

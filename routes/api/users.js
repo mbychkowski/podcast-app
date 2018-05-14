@@ -33,12 +33,8 @@ router.post('/', (req, res, next) => {
 router.route("/db")
   .post(userController.createUser)
 
-  // .get(userController.findById)
-  // .put(userController.updateUser)
-  // .delete(userController.removeUser)
-
-  // router.get('/', (req, res) => {
-  //   res.json({"hello":"world"})
-  // });
+//Find all subscriptions for a specific user
+router.route("/subscriptions/:id")
+  .get(userController.findSubscriptions)
 
 module.exports = router;
