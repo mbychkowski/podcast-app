@@ -19,7 +19,7 @@ const Searchbar = props =>  {
               value = {props.search}
               />
             <button
-              className="p-3 search-button-style hover:bg-pink-darker"
+              className="p-3 search-button-style hover:bg-orange-darker"
               type="button"
               onClick = {props.handlePodcastSearch}
               >

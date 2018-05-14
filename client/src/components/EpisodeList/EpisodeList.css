@@ -26,6 +26,7 @@ audio {
 }
 
 ul {
+margin-top: -15px;
   padding: 5%;
   background-color: #F4F4F4;
 }

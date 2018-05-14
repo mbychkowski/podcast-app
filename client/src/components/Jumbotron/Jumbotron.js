@@ -47,8 +47,9 @@ class Jumbotron extends Component {
   render(){
 
     return(
-        <div className="jumbotron bg-no-repeat flex content-center justify-center">
-          <Searchbar
+        <div className="flex-initial mx-auto jumbotron flex w-full mb-4">
+
+           <Searchbar
             handleInputChange = {this.handleInputChange}
             returnKeyPress = {this.returnKeyPress}
             value = {this.state.search}
