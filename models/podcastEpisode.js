@@ -30,6 +30,9 @@ const podcastEpisodeSchema = new Schema(
   releaseDate: {
     type: Date
   },
+  duration: {
+    type:Number
+  },
   views: {
     type: Number,
     default: 1

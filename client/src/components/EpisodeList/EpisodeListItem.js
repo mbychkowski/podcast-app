@@ -13,7 +13,7 @@ class EpisodeListItem extends Component {
       showHost: this.props.host ,
       genre: this.props.genre,
       showTitle: this.props.collectionname,
-      // showId: this.props.showid,
+      duration: this.props.duration,
       episodeThumbnail: this.props.thumbnail,
       releaseDate: this.props.releasedate
     }
@@ -24,18 +24,31 @@ class EpisodeListItem extends Component {
 
   render(){
     return(
-      <li>
-        <div>
-          <p className="font-bold text-xl mb-2">{this.props.title}
-            <span>
-              <audio controls {...this.props} onPlay = {this.handleEpisodePost}>
-                <source src={this.props.audio} type="audio/mpeg" />
-                  Your browser does not support the audio element.
-              </audio>
-            </span>
-          </p>
-        </div>
-      </li>
+      this.props.episodeitem.map(episode =>(
+        <li key={episode.guid}>
+          <div>
+            <p className="font-bold text-xl mb-2">{episode.title}
+              <span>
+                <audio controls
+                  title = {episode.title}
+                  author = {episode.author}
+                  categories = {episode.categories}
+                  content = {episode.content}
+                  description = {episode.description}
+                  guid = {episode.guid}
+                  link = {episode.link}
+                  pubdate = {episode.pubDate}
+                  thumbnail = {this.props.thumbnail}
+                  onPlay = {this.handleEpisodePost}>
+                  <source src={episode.audio} type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                </audio>
+              </span>
+            </p>
+          </div>
+        </li>
+      ))
+
     )
   }
 }

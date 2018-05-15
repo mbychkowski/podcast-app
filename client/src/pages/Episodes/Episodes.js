@@ -69,24 +69,25 @@ class Episodes extends Component {
 
       <EpisodeList>
 
-        {this.state.items.map(item => {
 
-          return (
+
+
             <EpisodeListItem
-              key={item.title}
+              episodeitem={this.state.items}
               collectionid = {this.props.location.state.collectionid}
               collectionname = {this.props.location.state.collectionname}
-              title={item.title}
+
               // showid = {item.episode._text}
-              thumbnail={this.props.location.state.artworkurl30}
-              audio={item.enclosure.link}
+              thumbnail={this.props.location.state.artworkUrl600}
+
               host = {this.props.location.state.artistname}
               genre = {this.props.location.state.genre}
-              releasedate = {item.pubDate}
-              views = {item.views}
+
+
+
             />
-          )
-        })}
+
+
 
       </EpisodeList>
     </div>);

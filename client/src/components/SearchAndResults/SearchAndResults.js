@@ -62,27 +62,25 @@ class SearchAndResults extends Component {
                     <TopPodcasts className="w-full" searchTopTenShows={this.state.topTenShows}/>
 
                     {/* Display the top podcast episodes */}
-                    <div className="max-w-md w-full border-t border-r">
-                      <h1>Top Episodes</h1>
-                    </div>
-                    {this.state.topTenEpisodes.map(episode => {
-                      return(
-                        <TopEpisodes
-                          key = {episode._id}
-                          className="w-full"
-                          title = {episode.episodeTitle}
-                          collectionid = {episode.collectionid}
-                          audio = {episode.audioUrl}
-                          host = {episode.showHost}
-                          genre = {episode.genre}
-                          collectionname = {episode.showTitle}
-                          thumbnail = {episode.episodeThumbnail}
-                          releasedate = {episode.releaseDate}
-                          views = {episode.views}
-                        />
-                      )
 
-                  })}
+
+
+                        <TopEpisodes
+                          // key = {episode._id}
+                          // className="w-full"
+                          // title = {episode.episodeTitle}
+                          // collectionid = {episode.collectionid}
+                          // audio = {episode.audioUrl}
+                          // host = {episode.showHost}
+                          // genre = {episode.genre}
+                          // collectionname = {episode.showTitle}
+                          // thumbnail = {episode.episodeThumbnail}
+                          // releasedate = {episode.releaseDate}
+                          // views = {episode.views}
+                          searchtoptenepisodes = {this.state.topTenEpisodes}
+                        />
+
+
                   </div>
                 </div>
 
