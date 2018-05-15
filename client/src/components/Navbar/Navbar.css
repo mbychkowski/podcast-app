@@ -27,7 +27,7 @@ a:active {
 }
 
 .nav-list-item {
-  @apply .p-6 .text-2xl .text-grey-light .tracking-wide;
+  @apply .p-6 .text-xl .text-grey-light .tracking-wide;
 }
 
 @tailwind utilities;
