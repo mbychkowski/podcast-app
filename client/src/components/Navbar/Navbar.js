@@ -1,56 +1,46 @@
-import { withAuth } from '@okta/okta-react';
 import React, { Component } from 'react';
-import { Container, Icon, Image, Menu } from 'semantic-ui-react';
-import { checkAuthentication } from '../../helpers/helpers';
-import { Link } from "react-router-dom"
+import { Redirect, Link } from 'react-router-dom';
+import LoginForm from '../LoginForm';
+import { withAuth } from '@okta/okta-react';
 
-import "./Navbar.css";
+import './Navbar.css';
 
-export default withAuth(class Navbar extends Component {
+export default withAuth(class Navigation extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      authenticated: null,
-      userId: ""
-    };
-    this.checkAuthentication = checkAuthentication.bind(this);
-    this.login = this.login.bind(this);
-    this.logout = this.logout.bind(this);
-  }
-
-  async componentDidMount() {
+    this.state = { authenticated: null };
+    this.checkAuthentication = this.checkAuthentication.bind(this);
     this.checkAuthentication();
   }
 
-  async componentDidUpdate() {
+  async checkAuthentication() {
+    const authenticated = await this.props.auth.isAuthenticated();
+    if (authenticated !== this.state.authenticated) {
+      this.setState({ authenticated });
+    }
+  }
+
+  componentDidUpdate() {
     this.checkAuthentication();
-  }
-
-  async login() {
-    this.props.auth.login('/');
-  }
-
-  async logout() {
-    this.props.auth.logout('/');
   }
 
   render() {
+    if (this.state.authenticated === null) return null;
+    const authNav = this.state.authenticated ?
+      <ul className="auth-nav nav-list flex">
+        <li className="py-6"><a className="nav-list-item hover:bg-blue-darker hover:text-grey-light" href="javascript:void(0)" onClick={this.props.auth.logout}>Logout</a></li>
+        <li className="py-6"><Link className="nav-list-item hover:bg-blue-darker hover:text-grey-light" to="/profile">Profile</Link></li>
+      </ul> :
+      <ul className="auth-nav nav-list flex">
+        <li className=""><LoginForm baseUrl={this.props.baseUrl} /></li>
+      </ul>;
     return (
-
-      <div>
-        <Menu className="bg-black" fixed="top" inverted>
-          <Container>
-            <Menu.Item as="a" header href="/">
-              <span className="logo text-4xl font-semibold text-xl tracking-normal">Octar</span>
-            </Menu.Item>
-
-            {this.state.authenticated === true && <Menu.Item id="profile-button" href={`/profile/${this.state.userId}`} as="a">Profile</Menu.Item>}
-            {this.state.authenticated === true && <Menu.Item id="logout-button" as="a" onClick={this.logout}>Logout</Menu.Item>}
-            {this.state.authenticated === false && <Menu.Item as="a" onClick={this.login}>Login</Menu.Item>}
-            {this.state.authenticated === false && <Menu.Item id="create-account" as="a" href="/account">Sign Up</Menu.Item>}
-          </Container>
-        </Menu>
-      </div>
-    );
+      <nav className="bg-blue-darkest flex items-center fixed pin-t w-full justify-between z-50">
+        <ul className="nav-list flex">
+          <li className="py-6"><Link className="nav-list-item hover:bg-blue-darker hover:text-grey-light" to="/">Orator</Link></li>
+        </ul>
+        {authNav}
+      </nav>
+    )
   }
 });

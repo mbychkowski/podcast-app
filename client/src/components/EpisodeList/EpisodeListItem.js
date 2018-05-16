@@ -24,7 +24,7 @@ class EpisodeListItem extends Component {
 
   render(){
     return(
-      <li>
+      <li className="eps-item">
         <div>
           <p className="font-bold text-xl mb-2">{this.props.title}
             <span>

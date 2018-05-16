@@ -24,10 +24,9 @@ class App extends Component{
                   client_id = {process.env.REACT_APP_CLIENT_ID}
                   redirect_uri = {process.env.REACT_APP_REDIRECT_URI}
                   onAuthRequired = {onAuthRequired} >
-          <Navbar />
+          <Navbar baseUrl={process.env.REACT_APP_ISSUER.split("/oauth2")[0]} />
           <Route path = "/" exact component = {Home} />
           <Route path = "/implicit/callback" component = {ImplicitCallback} />
-          <Route path = "/login" render={() => <Login baseUrl = {process.env.REACT_APP_ISSUER.split("/oauth2")[0]} />} />
           <Route path = "/account" component = {CreateAccount} />
           <Route path = "/podcast/:id" component = {Episodes} />
           <SecureRoute path= "/profile/:id" component = {Profile} />
