@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Redirect, Link } from 'react-router-dom';
+import LoginForm from '../LoginForm';
 import { withAuth } from '@okta/okta-react';
-import LoginForm from "../LoginForm";
 
-import "./Navbar.css";
+import './Navbar.css';
 
-export default withAuth(class Navigation extends React.Component {
+export default withAuth(class Navigation extends Component {
   constructor(props) {
     super(props);
     this.state = { authenticated: null };
@@ -32,7 +32,7 @@ export default withAuth(class Navigation extends React.Component {
         <li className="py-6"><Link className="nav-list-item hover:bg-blue-darker hover:text-grey-light" to="/profile">Profile</Link></li>
       </ul> :
       <ul className="auth-nav nav-list flex">
-        <li className=""><LoginForm /></li>
+        <li className=""><LoginForm baseUrl={this.props.baseUrl} /></li>
         <li className="py-6"><a className="nav-list-item hover:bg-blue-darker hover:text-grey-light" href="javascript:void(0)" onClick={this.props.auth.login}>Login</a></li>
         <li className="py-6"><Link className="nav-list-item hover:bg-blue-darker hover:text-grey-light" to="/account">Register</Link></li>
       </ul>;
