@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 
 import EpisodeList from "../../components/EpisodeList/EpisodeList.js";
+import AudioPlayer from "../../components/AudioPlayer";
 import EpisodeListItem from "../../components/EpisodeList/EpisodeListItem.js"
 import Jumbotron from "../../components/JumbotronEps";
 import PropTypes from 'prop-types';
@@ -71,6 +72,7 @@ class Episodes extends Component {
         description={this.state.feed.description}
         image={this.state.feed.image}
       />
+      <div>
       <EpisodeList>
 
         {this.state.items.map(item => {
@@ -94,7 +96,12 @@ class Episodes extends Component {
         })}
 
       </EpisodeList>
-    </div>);
+    <AudioPlayer/>
+    </div>
+    </div>
+
+
+    );
   }
 }
 

@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
 
 import Navbar from "./components/Navbar";
-import AudioPlayer from "./components/AudioPlayer";
 import Home from "./pages/Home";
 import Episodes from "./pages/Episodes";
 import Profile from './pages/Profile';
@@ -30,7 +29,6 @@ class App extends Component{
           <Route path = "/login" render={() => <Login baseUrl = {process.env.REACT_APP_ISSUER.split("/oauth2")[0]} />} />
           <Route path = "/account" component = {CreateAccount} />
           <Route path = "/podcast/:id" component = {Episodes} />
-          <Route path = "podcast/:id" component = {AudioPlayer} />
           <SecureRoute path= "/profile" component = {Profile} />
         </Security>
       </Router>
