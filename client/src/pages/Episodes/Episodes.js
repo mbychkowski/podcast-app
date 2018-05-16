@@ -16,6 +16,7 @@ class Episodes extends Component {
   }
 
   state = {
+    audio: "",
     items: [],
     feed: {},
     search: ""
@@ -24,6 +25,12 @@ class Episodes extends Component {
   componentDidMount() {
     this.searchFeedUrl(this.props.location.state.feedUrl);
     this.postPodcast();
+  }
+
+  handlePlay = (audioString) => {
+    this.state.audio = audioString
+    console.log(audioString);
+    console.log('this');
   }
 
   searchFeedUrl = query => {
@@ -70,6 +77,7 @@ class Episodes extends Component {
 
           return (
             <EpisodeListItem
+              onClick={this.handlePlay.bind(this)}
               key={item.title}
               collectionid = {this.props.location.state.collectionid}
               collectionname = {this.props.location.state.collectionname}

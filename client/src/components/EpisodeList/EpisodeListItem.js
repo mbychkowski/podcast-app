@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import API from '../../utils/API.js';
 
+
 class EpisodeListItem extends Component {
 
   handleEpisodePost = (event) => {
@@ -19,7 +20,7 @@ class EpisodeListItem extends Component {
     }
 
     API.addEpisode(selectedPodcastEpisode)
-}
+  }
 
 
   render(){
@@ -28,7 +29,7 @@ class EpisodeListItem extends Component {
         <div>
           <p className="font-bold text-xl mb-2">{this.props.title}
             <span>
-              <audio controls {...this.props} onPlay = {this.handleEpisodePost}>
+              <audio controls {...this.props} onPlay = {this.props.onClick(this.props.audio)}>
                 <source src={this.props.audio} type="audio/mpeg" />
                   Your browser does not support the audio element.
               </audio>
@@ -40,4 +41,4 @@ class EpisodeListItem extends Component {
   }
 }
 
-export default EpisodeListItem
+export default EpisodeListItem;
