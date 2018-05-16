@@ -33,11 +33,9 @@ export default withAuth(class Navigation extends Component {
       </ul> :
       <ul className="auth-nav nav-list flex">
         <li className=""><LoginForm baseUrl={this.props.baseUrl} /></li>
-        <li className="py-6"><a className="nav-list-item hover:bg-blue-darker hover:text-grey-light" href="javascript:void(0)" onClick={this.props.auth.login}>Login</a></li>
-        <li className="py-6"><Link className="nav-list-item hover:bg-blue-darker hover:text-grey-light" to="/account">Register</Link></li>
       </ul>;
     return (
-      <nav className="bg-blue-darkest flex items-center fixed pin-t w-full justify-between">
+      <nav className="bg-blue-darkest flex items-center fixed pin-t w-full justify-between z-50">
         <ul className="nav-list flex">
           <li className="py-6"><Link className="nav-list-item hover:bg-blue-darker hover:text-grey-light" to="/">Orator</Link></li>
         </ul>
