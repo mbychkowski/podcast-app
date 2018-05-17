@@ -3,6 +3,8 @@ import { withAuth } from '@okta/okta-react';
 import PodcastCard from "../../components/PodcastCard";
 import API from "../../utils/API";
 
+import "./Profile.css"
+
 export default withAuth(class ProfilePage extends React.Component {
   constructor(props){
     super(props);
@@ -35,15 +37,11 @@ export default withAuth(class ProfilePage extends React.Component {
   render() {
     if(!this.state.user) return null;
     return (
-      <div>
-        <section className="user-profile">
-          <h1>User Profile</h1>
-          <div>
-            <label>Name:</label>
-            <span>{this.state.user.name}</span>
-          </div>
+      <div className="user-profile">
+        <section className="m-8">
+          <h1>Welcome, {this.state.user.name}</h1>
         </section>
-        <div>
+        <div className="m-8">
           <PodcastCard
             results={this.state.subscriptions}
           />

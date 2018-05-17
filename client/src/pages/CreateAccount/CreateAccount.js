@@ -112,7 +112,7 @@ export default withAuth(class CreateAccount extends React.Component{
             </div>
             <input type="submit" id="submit" value="Register" className="btn btn-teal mx-auto"></input>
           </form>
-          <a className="link link-grey w-full text-center" href="/login">Already have an Account?</a>
+          <a className="link link-grey w-full text-center" href="/">Already have an Account?</a>
         </div>
       </div>
     )
