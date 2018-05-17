@@ -17,11 +17,11 @@
 }
 
 .btn-teal {
-  @apply .bg-teal;
+  @apply .bg-pink rounded;
 }
 
 .btn-teal:hover {
-  @apply .bg-teal-dark;
+  @apply .bg-pink-dark;
 }
 
 .link {

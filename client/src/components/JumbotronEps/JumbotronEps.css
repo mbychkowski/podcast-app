@@ -1,3 +1,7 @@
+.jumbo-background {
+  background-color: #F4F4F4;
+}
+
 .podcastHeading {
   overflow: hidden;
   color: #000000;
@@ -19,17 +23,12 @@
 .main {
   background-color: #FFC86D;
   max-height: 85%;
-    margin-top: 10%;
-    margin-left: 0;
-    margin-right: 10%;
-    margin-bottom: 10%;
+  margin-top: 10%;
+  margin-left: 0;
+  margin-right: 10%;
+  margin-bottom: 10%;
 }
 
 .img {
-  	max-width: 55%;
-    max-height: 55%;
-      margin-top: 10%;
-      margin-left: 0;
-      margin-right: 10%;
-      margin-bottom: 10%;
+	max-width: 55%;
 }

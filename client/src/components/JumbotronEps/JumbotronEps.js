@@ -37,34 +37,34 @@ class JumbotronEps extends Component{
 
   // jumbotron
 
-    <div className="flex-initial mx-auto jumbotron flex w-full mb-4">
+    <div className="flex items-center jumbo-background mt-8 w-full">
+      <div className="flex max-full mt-8 justify-between md:max-w-2xl md:mx-auto">
 
-  {/* image */}
-      <img className="img float-left" src={this.props.image}></img>
-      <div className="main float-right shadow-md max-h-full rounded-b lg:rounded-b-none lg:rounded-r p-4 leading-normal">
-        <div className="mb-8 shadow-sm">
-
-  {/* title */}
-          <div className="podcastHeading float-left text-2xl">{this.props.title}</div>
-
-  {/* description */}
-          <div className="description max-h-screen flex-col h-32 p-2 text-base shadow-md overflow-y-scroll">
-            {this.props.description}
-            {/* author */}
-            <h4 className="author text-xl leading-normal float-right">{this.props.author}</h4>
-          </div>
+        <div className="mt-8 md:w-1/2">
+          {/* image */}
+          <img className="img" src={this.props.image}></img>
         </div>
 
-        {/* Adding a div for the subscirbe button */}
-        <button
-          className="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full"
-          onClick = {this.subscribe}
-          >
-          Subscribe
-        </button>
+        <div className="mt-8 md:w-1/2">
+          {/* title */}
+          <h2 className="mb-4">{this.props.title}</h2>
+          {/* description */}
+          <p className="mb-4 text-justify">
+            {this.props.description}
+          </p>
+          {/* author */}
+          <h3 className="mb-4">{this.props.author}</h3>
+          {/* Adding a div for the subscirbe button */}
+          <button
+            className="bg-pink hover:bg-pink-darker text-white font-bold py-2 px-4 rounded-full"
+            onClick = {this.subscribe}
+            >
+            Subscribe
+          </button>
+        </div>
 
+        </div>
       </div>
-    </div>
     )
   }
 

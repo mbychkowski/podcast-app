@@ -1,12 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Redirect, Link } from 'react-router-dom';
 import OktaAuth from '@okta/okta-auth-js';
 import { withAuth } from '@okta/okta-react';
 
-export default withAuth(class LoginForm extends Component {
+import './LoginForm.css'
+
+export default withAuth(class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       sessionToken: null,
+      error: null,
       username: '',
       password: ''
     }
@@ -24,43 +28,57 @@ export default withAuth(class LoginForm extends Component {
       username: this.state.username,
       password: this.state.password
     })
-    .then(res => this.setState({
-      sessionToken: res.sessionToken
-    }))
-    .catch(err => console.log('Found an error', err));
+      .then(res => this.setState({
+        sessionToken: res.sessionToken
+      }))
+      .catch(err => {
+        this.setState({error: err.message});
+        console.log(err.statusCode + ' error', err)
+      });
   }
 
   handleUsernameChange(e) {
-    this.setState({username: e.target.value});
+    this.setState({ username: e.target.value });
   }
 
   handlePasswordChange(e) {
-    this.setState({password: e.target.value});
+    this.setState({ password: e.target.value });
   }
 
   render() {
-    console.log(this.state.sessionToken);
     if (this.state.sessionToken) {
-      this.props.auth.redirect({sessionToken: this.state.sessionToken});
+      this.props.auth.redirect({ sessionToken: this.state.sessionToken });
       return null;
     }
 
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Username:
+    const errorMessage = this.state.error ?
+	<span className="error-message">{this.state.error}</span> :
+	null;
+
+  return (
+    <div className="flex items-center">
+      <form onSubmit={this.handleSubmit} className="md:flex md:flex-wrap md:justify-between">
+        <div className="flex field-group md:w-2/5">
+          <label className="field-label text-grey-light text-xs">Username</label>
           <input
-            id="username" type="text"
+            id="username" type="text" className="field rounded hover:border-pink"
             value={this.state.username}
             onChange={this.handleUsernameChange} />
-          Password:
+        </div>
+        <div className="field-group md:w-2/5">
+          <label className="field-label text-grey-light text-xs md:ml-2">Password</label>
           <input
-            id="password" type="password"
+            id="password" type="password" className="field rounded hover:border-pink md:ml-2"
             value={this.state.password}
             onChange={this.handlePasswordChange} />
-        </label>
-        <input id="submit" type="submit" value="Submit" />
+        </div>
+        <input
+          id="submit" type="submit" value="Login"
+          className="p-6 text-xl text-grey-light tracking-wide bg-blue-darkest submit-btn md:w-1/5 hover:bg-blue-darker hover:text-grey-light"
+        />
       </form>
-    );
+      <Link className="nav-list-item hover:bg-blue-darker hover:text-grey-light" to="/account">Register</Link>
+    </div>
+    )
   }
 });
