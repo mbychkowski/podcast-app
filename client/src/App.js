@@ -6,7 +6,6 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Episodes from "./pages/Episodes";
 import Profile from './pages/Profile';
-import Login from "./pages/Login";
 import CreateAccount from "./pages/CreateAccount";
 
 import "./App.css";
