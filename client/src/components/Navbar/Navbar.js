@@ -1,27 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import LoginForm from '../LoginForm';
 import { withAuth } from '@okta/okta-react';
 
 import './Navbar.css';
 
-export default withAuth(class Navigation extends Component {
+export default withAuth(class Navigation extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { authenticated: null };
-    this.checkAuthentication = this.checkAuthentication.bind(this);
+    this.state = {
+      authenticated: null,
+      userId: ""
+    };
+    this.checkAuthentication = checkAuthentication.bind(this);
+    this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
+  }
+
+  async componentDidMount() {
     this.checkAuthentication();
   }
 
-  async checkAuthentication() {
-    const authenticated = await this.props.auth.isAuthenticated();
-    if (authenticated !== this.state.authenticated) {
-      this.setState({ authenticated });
-    }
+  async componentDidUpdate() {
+    this.checkAuthentication();
   }
 
-  componentDidUpdate() {
-    this.checkAuthentication();
+  async login() {
+    this.props.auth.login('/');
+  }
+
+  async logout() {
+    this.props.auth.logout('/');
   }
 
   render() {
