@@ -25,6 +25,11 @@ export default withAuth(class Navigation extends Component {
   }
 
   render() {
+    if (this.state.sessionToken) {
+      this.props.auth.redirect({ sessionToken: this.state.sessionToken });
+      return null;
+    }
+    
     if (this.state.authenticated === null) return null;
     const authNav = this.state.authenticated ?
       <ul className="auth-nav nav-list flex">

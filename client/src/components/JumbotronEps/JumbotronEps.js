@@ -37,7 +37,7 @@ class JumbotronEps extends Component{
 
   // jumbotron
 
-    <div className="flex items-center mt-8 w-full">
+    <div className="flex items-center jumbo-background mt-8 w-full">
       <div className="flex max-full mt-8 justify-between md:max-w-2xl md:mx-auto">
 
         <div className="mt-8 md:w-1/2">
@@ -56,7 +56,7 @@ class JumbotronEps extends Component{
           <h3 className="mb-4">{this.props.author}</h3>
           {/* Adding a div for the subscirbe button */}
           <button
-            className="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full"
+            className="bg-pink hover:bg-pink-darker text-white font-bold py-2 px-4 rounded-full"
             onClick = {this.subscribe}
             >
             Subscribe
