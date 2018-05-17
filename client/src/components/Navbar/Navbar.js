@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import LoginForm from '../LoginForm';
+import { checkAuthentication } from '../../helpers/helpers';
 import { withAuth } from '@okta/okta-react';
 
 import './Navbar.css';
