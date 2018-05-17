@@ -29,12 +29,12 @@ export default withAuth(class Navigation extends Component {
       this.props.auth.redirect({ sessionToken: this.state.sessionToken });
       return null;
     }
-    
+
     if (this.state.authenticated === null) return null;
     const authNav = this.state.authenticated ?
       <ul className="auth-nav nav-list flex">
         <li className="py-6"><a className="nav-list-item hover:bg-blue-darker hover:text-grey-light" href="javascript:void(0)" onClick={this.props.auth.logout}>Logout</a></li>
-        <li className="py-6"><Link className="nav-list-item hover:bg-blue-darker hover:text-grey-light" to="/profile">Profile</Link></li>
+        <li className="py-6"><Link className="nav-list-item hover:bg-blue-darker hover:text-grey-light" to={`/profile/${this.state.userId}`}>Profile</Link></li>
       </ul> :
       <ul className="auth-nav nav-list flex">
         <li className=""><LoginForm baseUrl={this.props.baseUrl} /></li>
