@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 
 import EpisodeList from "../../components/EpisodeList/EpisodeList.js";
-import AudioPlayer from "../../components/AudioPlayer";
+import AudioPlayer from "../../components/AudioPlayer/AudioPlayer.js";
 import EpisodeListItem from "../../components/EpisodeList/EpisodeListItem.js"
 import Jumbotron from "../../components/JumbotronEps";
 import PropTypes from 'prop-types';
@@ -13,8 +13,15 @@ class Episodes extends Component {
   static propTypes = {
     match: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired
+    history: PropTypes.object.isRequired,
+    handlePlayProp: PropTypes.func
   }
+
+  constructor(props){
+          super(props);
+          //does whatever stuff
+          this.handlePlayProp = this.handlePlay.bind(this);
+      }
 
   state = {
     audio: "",
@@ -29,7 +36,9 @@ class Episodes extends Component {
   }
 
   handlePlay = (audioString) => {
-    this.state.audio = audioString
+    this.setState({
+      audio: audioString
+    })
     console.log(audioString);
     console.log('this');
   }
@@ -79,7 +88,8 @@ class Episodes extends Component {
 
           return (
             <EpisodeListItem
-              onClick={this.handlePlay.bind(this)}
+              // onClick={this.handlePlay}
+              onClick={()=>{this.props.handlePlayProp(this.state.audio)}}
               key={item.title}
               collectionid = {this.props.location.state.collectionid}
               collectionname = {this.props.location.state.collectionname}
@@ -96,11 +106,39 @@ class Episodes extends Component {
         })}
 
       </EpisodeList>
-    <AudioPlayer/>
+    <AudioPlayer audio={this.state.audio}/>
     </div>
     </div>
 
+    // const A = 65 // ASCII character code
 
+    // class Alphabet extends React.Component {
+    //   constructor(props) {
+    //     super(props);
+    //     this.handleClick = this.handleClick.bind(this);
+    //     this.state = {
+    //       justClicked: null,
+    //       letters: Array.from({length: 26}, (_, i) => String.fromCharCode(A + i))
+    //     };
+    //   }
+    //   handleClick(letter) {
+    //     this.setState({ justClicked: letter });
+    //   }
+    //   render() {
+    //     return (
+    //       <div>
+    //         Just clicked: {this.state.justClicked}
+    //         <ul>
+    //           {this.state.letters.map(letter =>
+    //             <li key={letter} onClick={() => this.handleClick(letter)}>
+    //               {letter}
+    //             </li>
+    //           )}
+    //         </ul>
+    //       </div>
+    //     )
+    //   }
+    // }
     );
   }
 }

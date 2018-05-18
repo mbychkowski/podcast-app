@@ -29,7 +29,7 @@ class EpisodeListItem extends Component {
         <div>
           <p className="font-bold text-xl mb-2">{this.props.title}
             <span>
-              <audio controls {...this.props} onPlay = {this.props.onClick(this.props.audio)}>
+              <audio controls {...this.props} onPlay = {this.props.onClick}>
                 <source src={this.props.audio} type="audio/mpeg" />
                   Your browser does not support the audio element.
               </audio>
