@@ -6,6 +6,9 @@ const podcastEpisodeSchema = new Schema(
   showTitle: {
     type: String,
   },
+  guid: {
+    type: String
+  },
   collectionid: {
     type: String
   },

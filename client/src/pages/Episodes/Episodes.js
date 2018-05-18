@@ -57,6 +57,14 @@ class Episodes extends Component {
   }
 
   render() {
+
+    // Define the constants that will need to be passed as a property to each episode
+    const collectionid = this.props.location.state.collectionid
+    const collectionname = this.props.location.state.collectionname
+    const thumbnail=this.props.location.state.artworkurl600
+    const host = this.props.location.state.artistname
+    const genre = this.props.location.state.genre
+
     return (
     <div>
       <Jumbotron
@@ -69,23 +77,33 @@ class Episodes extends Component {
 
       <EpisodeList>
 
+        {this.state.items.map(episode =>(
+
+          <EpisodeListItem
+            key = {episode.enclosure.length}
+            collectionid = {collectionid}
+            collectionname = {collectionname}
+            thumbnail= {thumbnail}
+            host = {host}
+            genre = {genre}
+            audio = {episode.enclosure.link}
+            title = {episode.title}
+            author = {episode.author}
+            categories = {episode.categories}
+            content = {episode.content}
+            description = {episode.description}
+            guid = {episode.guid}
+            link = {episode.link}
+            pubdate = {episode.pubDate}
+            thumbnail = {thumbnail}
+            onPlay = {this.handleEpisodePost}
+
+          />
+
+        ))}
 
 
 
-            <EpisodeListItem
-              episodeitem={this.state.items}
-              collectionid = {this.props.location.state.collectionid}
-              collectionname = {this.props.location.state.collectionname}
-
-              // showid = {item.episode._text}
-              thumbnail={this.props.location.state.artworkUrl600}
-
-              host = {this.props.location.state.artistname}
-              genre = {this.props.location.state.genre}
-
-
-
-            />
 
 
 

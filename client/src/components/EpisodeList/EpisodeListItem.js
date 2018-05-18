@@ -17,38 +17,37 @@ class EpisodeListItem extends Component {
       episodeThumbnail: this.props.thumbnail,
       releaseDate: this.props.releasedate
     }
+    // console.log(selectedPodcastEpisode);
 
     API.addEpisode(selectedPodcastEpisode)
 }
 
 
+
   render(){
     return(
-      this.props.episodeitem.map(episode =>(
-        <li key={episode.guid}>
+        <li key={this.props.guid}>
           <div>
-            <p className="font-bold text-xl mb-2">{episode.title}
+            <p className="font-bold text-xl mb-2">{this.props.title}
               <span>
                 <audio controls
-                  title = {episode.title}
-                  author = {episode.author}
-                  categories = {episode.categories}
-                  content = {episode.content}
-                  description = {episode.description}
-                  guid = {episode.guid}
-                  link = {episode.link}
-                  pubdate = {episode.pubDate}
+                  title = {this.props.title}
+                  author = {this.props.author}
+                  categories = {this.props.categories}
+                  content = {this.props.content}
+                  description = {this.props.description}
+                  guid = {this.props.guid}
+                  link = {this.props.link}
+                  pubdate = {this.props.pubDate}
                   thumbnail = {this.props.thumbnail}
                   onPlay = {this.handleEpisodePost}>
-                  <source src={episode.audio} type="audio/mpeg" />
+                  <source src={this.props.audio} type="audio/mpeg" />
                     Your browser does not support the audio element.
                 </audio>
               </span>
             </p>
           </div>
         </li>
-      ))
-
     )
   }
 }

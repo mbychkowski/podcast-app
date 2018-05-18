@@ -66,6 +66,7 @@ class SearchAndResults extends Component {
 
 
                         <TopEpisodes
+                          className="w-full"
                           // key = {episode._id}
                           // className="w-full"
                           // title = {episode.episodeTitle}

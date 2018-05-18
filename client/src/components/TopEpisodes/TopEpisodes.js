@@ -31,9 +31,9 @@ class TopEpisodes extends Component {
           <div className="flex flex-row flex flex-wrap group mt-4 ml-2 justify-center">
 
           {/* Map through each */}
-          {this.props.searchtoptenepisodes.map(podcastEpisode => (
-            <div className="mb-2" key={podcastEpisode.collectionid}>
-              <img className="w-full" src={podcastEpisode.episodeThumbnail} alt={podcastEpisode.episodeTitle} />
+          {this.props.searchtoptenepisodes.map((podcastEpisode, i) => (
+            <div className="mb-2 mx-2 w-2/5" key={i}>
+              <img className="w-full" src={podcastEpisode.episodeThumbnail} alt={podcastEpisode.showTitle} />
               <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">{podcastEpisode.episodeTitle}</div>
               </div>
