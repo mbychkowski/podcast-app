@@ -24,32 +24,39 @@ class TopEpisodes extends Component {
     render(){
       return(
         <div className="xl:w-1/2 l:w-1/2 m:w-1/2 s:w-full">
+
           <div className="flex flex-row justify-center mt-2">
             <h1>Top 10 Episodes</h1>
           </div>
 
-          <div className="flex flex-row flex flex-wrap group mt-4 ml-2 justify-center">
+          <div className="flex-row flex flex-wrap group mt-4 ml-2 justify-center">
+            {/* Map through each */}
+            {this.props.searchtoptenepisodes.map((podcastEpisode, i) => (
+              <div className="mr-4 w-full justify-center" key={i}>
+                <div className="border-r border-b border-l border-t border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+                  <div className="mb-2">
+                    <p className="text-sm text-grey-dark flex items-center">
+                      {podcastEpisode.showHost}
+                    </p>
+                    <div className="text-black font-bold text-xl mb-2">{podcastEpisode.showTitle}</div>
+                  </div>
+                  <div className="flex items-center">
+                    <img class="w-10 h-10 rounded-full mr-4" src={podcastEpisode.episodeThumbnail} alt={podcastEpisode.showTitle}/>
+                    <div className="w-full">
 
-          {/* Map through each */}
-          {this.props.searchtoptenepisodes.map((podcastEpisode, i) => (
-            <div className="mb-2 mx-2 w-2/5" key={i}>
-              <img className="w-full" src={podcastEpisode.episodeThumbnail} alt={podcastEpisode.showTitle} />
-              <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2">{podcastEpisode.episodeTitle}</div>
+                      <audio className="w-full" controls {...this.props} onPlay = {this.handleEpisodePost}>
+                        <source src={podcastEpisode.audioUrl} type="audio/mpeg" />
+                          Your browser does not support the audio element.
+                      </audio>
+
+                    </div>
+                  </div>
+                </div>
               </div>
-              {/* <div className="px-6 py-4"> */}
+            ))}
 
-                  <audio className="w-full" controls {...this.props} onPlay = {this.handleEpisodePost}>
-                    <source src={podcastEpisode.audio} type="audio/mpeg" />
-                      Your browser does not support the audio element.
-                  </audio>
-
-              {/* </div> */}
-            </div>
-          ))}
+          </div>
         </div>
-
-      </div>
 
     )
   }
