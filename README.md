@@ -1,5 +1,5 @@
 # Orator
-Orator is web application that allows you to browse, subscribe, and listen to your favorite podcasts. Users can create profile to subscribe to their favorite podcasts to stay up to date with the latest episodes.
+[Orator](https://oratorcast.herokuapp.com/) is web application that allows you to browse, subscribe, and listen to your favorite podcasts. Users can create profile to subscribe to their favorite podcasts to stay up to date with the latest episodes.
 
 ## How it works
 Orator uses `iTunes API` to search for available podcasts. The rss feed for that podcast is recheived and converted to json using `rss2json`. The rss feed allows Orator to bring you the latest epsiodes for your favorite podcast.
